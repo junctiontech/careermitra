@@ -24,9 +24,9 @@ class Careermitra extends CI_Controller
 		
 		//$this->data['examtype']=$this->Careermitra_model->get_data('exam');
 		
-		$this->parser->parse('header',$this->data);
+		$this->parser->parse('Header',$this->data);
 		$this->load->view('Home',$this->data);
-		$this->parser->parse('footer',$this->data);
+		$this->parser->parse('Footer',$this->data);
 		
 		}
 	function register()
