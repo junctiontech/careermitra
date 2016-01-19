@@ -32,7 +32,7 @@ class Careermitra extends CI_Controller
 	function register()
 		{
 		
-		$this->parser->parse('header',$this->data);
+		$this->parser->parse('Header',$this->data);
 		$this->load->view('Register',$this->data);
 		$this->parser->parse('footer',$this->data);
 		
