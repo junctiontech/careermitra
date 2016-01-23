@@ -33,8 +33,13 @@
            
         </div>
 		<?php foreach ($student as $studentshow){?>
+		
         <div class="useravatar">
-            <img alt="user image" src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>">
+		<?php if(!empty($studentshow->Image)){?>
+            <img alt="user image" src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px" alt="user image">">
+			  <?php } else {?>
+			   <img src="<?=base_url();?>/assets/images/user-2.png" style="height:200px; width:200px">
+		<?php } ?>
         </div>
         <div class="card-info"> <span class="card-title">
 				<h3 style="margin-top:10px"><?=isset ($studentshow->First_name) ?$studentshow->First_name:''?>
@@ -109,7 +114,7 @@
 						Street-<?=isset ($studentshow->street) ?$studentshow->street:''?></br></br>
 						Line2-<?=isset ($studentshow->Line2) ?$studentshow->Line2:''?></br></br>
 						City-<?=isset ($studentshow->City) ?$studentshow->City:''?></br></br>
-						State-<?=isset ($studentshow->State) ?$studentshow->State:''?></br></br>
+						State-<?=isset ($studentshow->State_name) ?$studentshow->State_name:''?></br></br>
 						Zip-<?=isset ($studentshow->ZIP) ?$studentshow->ZIP:''?></td>
                      </tr></tr>
 
