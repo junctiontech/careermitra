@@ -36,7 +36,7 @@
 		
         <div class="useravatar">
 		<?php if(!empty($studentshow->Image)){?>
-            <img alt="user image" src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px" alt="user image">">
+            <img alt="user image" src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px" alt="user image">
 			  <?php } else {?>
 			   <img src="<?=base_url();?>/assets/images/user-2.png" style="height:200px; width:200px">
 		<?php } ?>
