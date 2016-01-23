@@ -11,7 +11,7 @@
 			
 			
 			
-			<form role="form" id="rootwizard" class="form-wizard validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Mentorpg/insert">
+			<form role="form" id="rootwizard" class="form-wizard validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert">
 			<input type="hidden" name="role_id"  value="mentor" />
 				
 				<ul class="tabs">
@@ -94,20 +94,15 @@
 						
 					</div>
 					
-					<div class="tab-pane with-bg" id="fwv-2">
+				<div class="tab-pane with-bg" id="fwv-2">
 						
-						
-						
-						
-						
-						<div class="row">
-							
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="control-label" for="city">Qualification</label>
-									<textarea class="form-control autogrow" name="Qualification" id="field-1" data-validate="required" placeholder="Education"></textarea>
-								</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+									<label class="control-label" for="Contact no">Contact no</label>
+									<input class="form-control" name="Contact_no" id="field-1" data-validate="number" placeholder="Number" />
 							</div>
+						</div>
 							
 							<div class="col-md-6">
 								<div class="form-group">
@@ -115,48 +110,53 @@
 									<input class="form-control" name="Current_job" id="field-1" data-validate="required" placeholder="Current Job" />
 								</div>
 							</div>
-							
-						</div>
+					
+					</div>
 						
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
+					<div class="row">
+							
+								<!--<div class="form-group">
 									<label class="control-label" for="Email">Email Address</label>
 									<input class="form-control" name="Email" id="field-1" data-validate="required,email" placeholder="Email" />
-								</div>
-							</div>
+								</div>-->
 							
 							
-							<div class="col-md-6">
+							
+							
+								
+						<div class="col-md-6">
 								<div class="form-group">
-									<label class="control-label" for="Contact no">Contact no</label>
-									<input class="form-control" name="Contact_no" id="field-1" data-validate="number" placeholder="Number" />
+									<label class="control-label" for="city">Qualification</label>
+									<textarea class="form-control autogrow" name="Qualification" id="field-1" data-validate="required" placeholder="Education"></textarea>
 								</div>
-							</div>
 						</div>
 						
-						<div class="row">
+						<div class="col-md-6">
 								<div class="form-group">
 									<label class="control-label" for="More info">More info</label>
 									<textarea class="form-control autogrow" name="More_info" id="field-1" data-validate="required" placeholder="Info"></textarea>
 								</div>
-				
 						</div>
+							
 					</div>
+			</div>
 					
 					
 					
 					<div class="tab-pane with-bg" id="fwv-5">
-									
+						
+
+						
 						<div class="form-group">
-							<label class="control-label">Choose Username</label>
+							<label class="control-label">Email Address</label>
 							
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="linecons-user"></i>
 								</div>
 								
-								<input type="text" class="form-control" name="usermailid" id="username" data-validate="required,minlength[5]" data-message-minlength="Username must have minimum of 5 chars." placeholder="Could also be your email" />
+								<span class="msg_box_1"></span>
+								<input type="text" class="form-control" name="usermailid" onblur="check_email('1')"  id="reg-email" data-validate="required,email" data-message-minlength="Username must have minimum of 5 chars." placeholder="Could also be your email" />
 							</div>
 						</div>
 						
@@ -194,10 +194,10 @@
 						
 						
 									
-						<div class="form-group">
+						<!--<div class="form-group">
 							<input type="checkbox" class="cbr" name="chk-rules" id="chk-rules" data-validate="required" data-message-message="You must accept rules in order to complete this registration.">
 							<label for="chk-rules">By registering I accept terms and conditions.</label>
-						</div>
+						</div>-->
 						
 						<div class="form-group">
 							<button type="submit" style="background-color:#8079C9"class="btn btn-primary">Finish Registration</button>

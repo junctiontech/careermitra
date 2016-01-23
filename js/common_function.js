@@ -1,9 +1,9 @@
-
+var base_url="/careermitra/";
 function Getexam(careerid){
 
 $.ajax({
 				type: "POST",
-				url : 'Managejob/getexambycareer',
+				url : base_url+"index.php/Jobpg/getexambycareer",
 				data: {careerid: careerid  },
 				
 			})	
@@ -21,20 +21,25 @@ $.ajax({
 function check_email(obj){
         
 				var textboxid='msg_box_'+obj;
-				var email = $('#reg-email').value;
-					
+				var email = document.getElementById('reg-email').value;
+				
                 if(email!=''){
                         $.ajax({
                                         type:"POST",
-                                        url: base_url+"index.php/Studentpg/check_email",
+                                        url: base_url+"index.php/Loginpg/Check_email",
                                         data: {email: email},
-                                        })
+                                        }) 
                                         .done(function( msg ) {
-                                                if(msg!=1) {
+										
+                                                if(msg==0) 
+												{
                                                         $('#reg-email').val('');
                                                         $(".msg_box_"+obj).html("email id already registered with us.");
                                                         return false;
-                                                        }else{
+                                                        }
+														
+														else
+														{
 															
 															$(".msg_box_"+obj).html('');
                 
@@ -43,6 +48,44 @@ function check_email(obj){
                         return false;
                 }
 }
+
+
+function check_career(obj){
+	var textboxid='msg_box_'+obj;
+	var Career_name = document.getElementById('reg-career').value;
+	
+	
+	if(Career_name!='')
+	{
+		$.ajax({
+					type:"POST",
+					url:base_url+"index.php/Careerpg/Check_career",
+					data:{Career_name: Career_name}
+					}) 
+					.done(function( msg ) {
+										
+                                                if(msg==0) 
+												{
+                                                        $('#reg-career').val('');
+                                                        $(".msg_box_"+obj).html("career is already registered with us.");
+                                                        return false;
+                                                        }
+														
+														else
+														{
+															
+															$(".msg_box_"+obj).html('');
+                
+														}
+                                        });
+		
+                        return false;
+		
+}
+}
+
+
+
 
 
 function email_chek(val)

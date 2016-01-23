@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 			<!-- Navbar Brand -->
 			<div class="navbar-brand">
-			<a href="<?=base_url();?>index.php/adminpg"><h2 style="color:white"> CareerMitra</h2></a>
+			<a href="<?=base_url();?>index.php/CareerMitra/Adminindex"><h2 style="color:white"> CareerMitra</h2></a>
 				
 				
 			</div>
@@ -116,8 +116,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					<ul class="dropdown-menu user-profile-menu list-unstyled">
 						
-						
-						
 						<li class="last">
 							<a href="<?=base_url();?>index.php/Loginpg/logout">
 								<i class="fa-lock"></i>
@@ -127,10 +125,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</ul>
 				</li>
 				
-				
-				
-			</ul>
-	
 		</div>
 		
 	</nav>
@@ -150,7 +144,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 					
 					<li>
-						<a href="<?=base_url();?>index.php/Managecareer">
+						<a href="<?=base_url();?>index.php/Careerpg/Mngcaindex">
 							<i class="fa-cog"></i>
 							<span class="title">Manage Career</span>
 						</a>
@@ -164,15 +158,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<ul>
 					
 						<li>
-						<a href="<?=base_url();?>index.php/Manageexam1">Exam Type</a>
+						<a href="<?=base_url();?>index.php/Exampg/Mngexindex">Exam Type</a>
 						</li>
 						
 						<li>
-						<a href="<?=base_url();?>index.php/Manageexam2">Exam </a>
+						<a href="<?=base_url();?>index.php/Exampg/Mngexindex1">Exam </a>
 						</li>
 						
 						<li>
-						<a href="<?=base_url();?>index.php/Manageexam3">Exam Detail</a> 
+						<a href="<?=base_url();?>index.php/Exampg/Mngexindex2">Exam Detail</a> 
 						</li>
 						
 					</ul>
@@ -185,7 +179,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</a>
 					<ul>
 						<li>
-						<a href="<?=base_url();?>index.php/Managejob">Job type</a>
+						<a href="<?=base_url();?>index.php/Jobpg/Mngjbindex">Job type</a>
 						</li>
 						
 						
@@ -198,15 +192,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</a>
 					<ul>
 						<li>
-							<a href="<?=base_url();?>index.php/Manageinstitute">Institute  type</a>
+							<a href="<?=base_url();?>index.php/Institutepg/Mnginsindex">Institute  type</a>
 						</li>
-						<li>
+						<!--<li>
 						<a href="Javascript">Register Institute</a>
-						</li>
+						</li>-->
 						
 					</ul>
 					</li>
-					<li>
+				<!--	<li>
 						<a href="Javascript">
 							<i class="fa-picture-o"></i>
 							<span class="title">Manage Gallery</span>
@@ -221,9 +215,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 					</ul>
 						
-					</li>
+					</li>-->
 					<li>
-						<a href="<?=base_url();?>index.php/Manageintro">
+						<a href="<?=base_url();?>index.php/Careermitra/index5">
 							<i class="fa-cog"></i>
 							<span class="title">Manage Introduction</span>
 						</a>
@@ -231,7 +225,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 					</li>
 					<li>
-						<a href="<?=base_url();?>index.php/Managenotify">
+						<a href="<?=base_url();?>index.php/Careermitra/index6">
 							<i class="fa-star"></i>
 							<span class="title">Manage Notification</span>
 						</a>
@@ -239,7 +233,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</li>
 					
 					<li>
-						<a href="<?=base_url();?>index.php/Managedegree">
+						<a href="<?=base_url();?>index.php/Institutepg/Degindex">
 							<i class="fa-star"></i>
 							<span class="title">Manage Degree</span>
 						</a>
@@ -247,34 +241,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</li>
 					
 					<li>
-						<a href="<?=base_url();?>index.php/Managemapping">
+						<a href="<?=base_url();?>index.php/Institutepg/Maindex">
 							<i class="fa-star"></i>
 							<span class="title">Manage Mapping</span>
 						</a>
 						
 					</li>
 					<li>
-						<a href="<?=base_url();?>index.php/Managemapping1">
+						<a href="<?=base_url();?>index.php/Institutepg/Maindex1">
 							<i class="fa-star"></i>
 							<span class="title">Manage Mapping1</span>
 						</a>
 						
 					</li>
 					<li>
-						<a href="<?=base_url();?>index.php/Managesubject">
+						<a href="<?=base_url();?>index.php/Exampg/index4">
 							<i class="fa-cog"></i>
 							<span class="title">Manage Subject</span>
 						</a>
 						
 					</li>
-					<li>
+					<!--<li>
 						<a href="<?=base_url();?>index.php/Managearticle">
 							<i class="fa-book"></i>
 							<span class="title">Manage Article</span>
 						</a>
-					</li>
+					</li>-->
 					<li>
-						<a href="<?=base_url();?>index.php/Managepapers">
+						<a href="<?=base_url();?>index.php/Exampg/index3">
 							<i class="fa-book"></i>
 							<span class="title">Manage Papers</span>
 						</a>
@@ -299,10 +293,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<span class="title">Manage Webinfo</span>
 							</a>
 						<ul>	
-							<li><a href="<?=base_url();?>index.php/ManageAboutus">About Us</a>
+							<li><a href="<?=base_url();?>index.php/Careermitra/index3">About Us</a>
 							</li>
 						
-							<li><a href="<?=base_url();?>index.php/ManageContactus">Contact Us</a>
+							<li><a href="<?=base_url();?>index.php/Careermitra/index4">Contact Us</a>
 							</li>
 						</ul>	
 					</li>	

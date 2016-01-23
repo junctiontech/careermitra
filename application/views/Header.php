@@ -18,6 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=base_url();?>/../carousel_files/bootstrap.min.css" rel="stylesheet">
 <link href="<?=base_url();?>/../css/custom.css" rel="stylesheet">
    <link href="<?=base_url();?>/../css/xenon-forms.css" rel="stylesheet"> 
+   <!--<link rel="stylesheet" href="<?=base_url();?>/../css/bootstrap.css">-->
     <link href="<?=base_url();?>/../css/xenon-core.css" rel="stylesheet"> 
 	<link href="<?=base_url();?>/../css/xenon-skins.css" rel="stylesheet">
 	<link href="<?=base_url();?>/../css/xenon-components.css" rel="stylesheet">
@@ -51,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-	<a class="navbar-brand" href="<?=base_url();?>index.php/Aboutuspg" style="font-size:25px">CareerMitra</a>
+	<a class="navbar-brand" href="<?=base_url();?>index.php/Careermitra/index1" style="font-size:25px">CareerMitra</a>
      
     </div>
     
@@ -79,8 +80,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <a class="dropdown-toggle" data-toggle="dropdown"id="nav2" href="#">Contact us
           <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-            <li><a href="<?=base_url();?>index.php/Aboutuspg">About us</a></li>
-            <li><a href="<?=base_url();?>index.php/Contactuspg">Contact us</a></li>
+            <li><a href="<?=base_url();?>index.php/Careermitra/index1">About us</a></li>
+            <li><a href="<?=base_url();?>index.php/Careermitra/index2">Contact us</a></li>
              
           </ul>
      </li>
@@ -93,20 +94,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	<?php $userdata =$this->session->userdata('user_data');
 		$name=$userdata['First_name'];
+		$id=$userdata['user_id'];
 	      if(!empty($userdata))
 		  { ?>
 	  
-		<li><span class="glyphicon glyphicon-user"><?php echo $name ?></span></li>
-		<li><a href="<?=base_url();?>index.php/Loginpg/logout"><i class="fa-lock">Log out</i></a></li>
+	  
+	  
+	  <li class="dropdown user-profile">
+	<?php foreach ($student as $studentshow){?>
+	
+	
+						<a href="#" data-toggle="dropdown">
+						<?php if(!empty($studentshow->Image)){?>
+							<img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" alt="user-image" class="img-circle img-inline" height="32" width="35"  style="margin-top:3px"/>
+							<?php } else {?>
+							<img src="<?=base_url();?>/assets/images/user-2.png" style="height:30px; width:30px">
+							<?php } ?>
+							
+							<span>
+								<?php echo $name ?>
+								<i class="fa-angle-down"></i>
+							</span>
+						</a>
+		
+						<ul class="dropdown-menu user-profile-menu list-unstyled">
+							<li>
+								<a href="<?=base_url();?>index.php/Loginpg/editprofile/<?=isset($studentshow->user_id) ?$studentshow->user_id:''?>">
+									<i class="fa-edit"></i>
+									Edit profile
+								</a>
+							</li>
+							
+							<li>
+								<a href="<?=base_url();?>index.php/Loginpg/stpro/<?=isset($studentshow->user_id) ?$studentshow->user_id:''?>">
+									<i class="fa-user"></i>
+									Profile
+								</a>
+							</li>
+							
+							<li class="last">
+								<a href="<?=base_url();?>index.php/Loginpg/logout">
+									<i class="fa-lock"></i>
+									Logout
+								</a>
+							</li>
+						</ul>
+	<?php }?>	
+					</li>
+					
+		
+		<!--<li><span class="glyphicon glyphicon-user"><?php echo $name ?></span></li>
+		<li><a href="<?=base_url();?>index.php/Loginpg/logout"><i class="fa-lock">Log out</i></a></li>-->
 		
 		<?php  }
+		
 		else { ?>
 		
 		  <a class="dropdown-toggle" data-toggle="dropdown"id="nav2" href="#" ><span class="glyphicon glyphicon-user" >Sign up
           <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-	<li><a href="<?=base_url();?>index.php/Studentpg"><span class="glyphicon glyphicon-user">Student</a></li>
-	<li><a href="<?=base_url();?>index.php/Mentorpg"><span class="glyphicon glyphicon-user">Mentor</a></li>
+	<li><a href="<?=base_url();?>index.php/Loginpg/stview"><span class="glyphicon glyphicon-user">Student</a></li>
+	<li><a href="<?=base_url();?>index.php/Loginpg/mtview"><span class="glyphicon glyphicon-user">Mentor</a></li>
 	</ul></li>
 	<li><a href="<?=base_url();?>index.php/Loginpg"><span class="glyphicon glyphicon-log-in">Login</a></li>
 	

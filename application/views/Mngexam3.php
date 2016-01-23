@@ -30,7 +30,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Manageexam3/insert">
+							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Exampg/exinsert1">
 								
 					<div class="form-group">
 					
@@ -287,10 +287,10 @@
 								
 								<td><?= isset ($exam3show->Language_id)?$exam3show->Language_id:''?></td>
 								
-								<td><a href="<?=base_url();?>index.php/Manageexam3/delete/<?=isset ($exam3show->Examdetail_id) ?$exam3show->Examdetail_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Exampg/exdelete1/<?=isset ($exam3show->Examdetail_id) ?$exam3show->Examdetail_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Manageexam3/index/<?=isset($exam3show->Examdetail_id)?$exam3show->Examdetail_id:''?>">
+								<a href="<?=base_url();?>index.php/Exampg/Mngexindex2/<?=isset($exam3show->Examdetail_id)?$exam3show->Examdetail_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

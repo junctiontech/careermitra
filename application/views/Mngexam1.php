@@ -29,7 +29,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Manageexam1/insert">
+							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Exampg/insert">
 								
 					<div class="form-group">
 							<input type="hidden" name="id" value="<?=isset($updatedata[0]->type_id)?$updatedata[0]->type_id:''?>" />
@@ -128,10 +128,10 @@
 								<td><?=isset ($exam1show->Language_id) ?$exam1show->Language_id:''?></td>	
 								<td><?=isset ($exam1show->created_by) ?$exam1show->created_by:''?></td>	
 									
-								<td><a href="<?=base_url();?>index.php/Manageexam1/delete/<?=isset ($exam1show->type_id) ?$exam1show->type_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Exampg/delete/<?=isset ($exam1show->type_id) ?$exam1show->type_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Manageexam1/index/<?=isset($exam1show->type_id)?$exam1show->type_id:''?>">
+								<a href="<?=base_url();?>index.php/Exampg/Mngexindex/<?=isset($exam1show->type_id)?$exam1show->type_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

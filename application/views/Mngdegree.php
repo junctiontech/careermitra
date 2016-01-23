@@ -28,7 +28,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Managedegree/insert">
+							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Institutepg/Deginsert">
 								
 					<div class="form-group">
 							<input type="hidden" name="id" value="<?=isset($updatedata[0]->Degree_id)?$updatedata[0]->Degree_id:''?>" />
@@ -118,10 +118,10 @@
 								<td><?=isset ($Degreeshow->Term) ?$Degreeshow->Term:''?></td>	
 								<td><?=isset ($Degreeshow->Eligibility) ?$Degreeshow->Eligibility:''?></td>	
 									
-								<td><a href="<?=base_url();?>index.php/Managedegree/delete/<?=isset ($Degreeshow->Degree_id) ?$Degreeshow->Degree_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Institutepg/Degdelete/<?=isset ($Degreeshow->Degree_id) ?$Degreeshow->Degree_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Managedegree/index/<?=isset($Degreeshow->Degree_id)?$Degreeshow->Degree_id:''?>">
+								<a href="<?=base_url();?>index.php/Institutepg/Degindex/<?=isset($Degreeshow->Degree_id)?$Degreeshow->Degree_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

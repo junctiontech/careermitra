@@ -28,7 +28,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form"   class="validate" method="post" action="<?=base_url();?>index.php/Manageaboutus/insert">
+							<form role="form"   class="validate" method="post" action="<?=base_url();?>index.php/Careermitra/insert">
 								
 					<div class="form-group">
 							<input type="hidden" name="id"  value="<?=isset($updatedata[0]->Aboutus_id)?$updatedata[0]->Aboutus_id:''?>" />
@@ -103,10 +103,10 @@
 								<td><?=isset ($aboutshow->Description) ?$aboutshow->Description:''?></td>
 								
 									
-								<td><a href="<?=base_url();?>index.php/Manageaboutus/delete/<?=isset ($aboutshow->Aboutus_id)?$aboutshow->Aboutus_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Careermitra/delete/<?=isset ($aboutshow->Aboutus_id)?$aboutshow->Aboutus_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Manageaboutus/index/<?=isset($aboutshow->Aboutus_id)?$aboutshow->Aboutus_id:''?>">
+								<a href="<?=base_url();?>index.php/Careermitra/index3/<?=isset($aboutshow->Aboutus_id)?$aboutshow->Aboutus_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

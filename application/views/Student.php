@@ -14,7 +14,7 @@
 			
 			
 			
-			<form role="form" id="rootwizard" class="form-wizard validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Studentpg/insert">
+			<form role="form" id="rootwizard" class="form-wizard validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
 				<input type="hidden" name="role_id" value="student" />
 				
 				<ul class="tabs">
@@ -77,11 +77,11 @@
 						<input type="file" class="form-control" id="field-1"  name="file" ><?=isset($updatedata[0]->Image)?$updatedata[0]->Image:''?>
 							
 							</div>
-					
 						
 						
 						
-							<div class="col-md-6">
+						
+						<div class="col-md-6">
 								<div class="form-group">
 									<label class="control-label" for="birthdate">Date of Birth</label>
 								
@@ -94,6 +94,7 @@
 								</div>
 							
 							
+						</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
@@ -111,13 +112,23 @@
 												<input type="radio" style="margin-left:13px" name="Gender"class="cbrcbr-purple" Value="Female">
 												Female
 											</label>
-												
-												
+									</div>
+							</div>
+									
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label" for="Contact no">Contact no</label>
+									<div class="input-group">
+									<input class="form-control" name="Contact_no" id="Contact_no" data-validate="required,number" placeholder="Phone number" />
+									</div>
+								</div>
+							</div>				
 											
-							</div></div>
+						</div>
+							
 						</div>
 						
-					</div></div>
+					
 					
 					<div class="tab-pane with-bg" id="fwv-2">
 						
@@ -282,13 +293,10 @@
 					</div>
 					
 					
-						
-						
-					
 					<div class="tab-pane with-bg" id="fwv-5">
 									
 						<div class="form-group">
-							<label class="control-label">Choose Username</label>
+							<label class="control-label">Email Address</label>
 							
 							<div class="input-group">
 								<div class="input-group-addon">
@@ -296,7 +304,7 @@
 								</div>
 								
 							<span class="msg_box_1"></span>
-								<input type="text" class="form-control " name="usermailid"  onblur="check_email('1')" id="reg-email" data-validate="required,minlength[5]" data-message-minlength="Username must have minimum of 5 chars." placeholder="Could also be your email" />
+								<input type="text" class="form-control " name="usermailid"  onblur="check_email('1')" id="reg-email" data-validate="required,email"  placeholder="Could also be your email" />
 							</div>
 						</div>
 						

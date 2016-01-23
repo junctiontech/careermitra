@@ -30,7 +30,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Manageexam2/insert">
+							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Exampg/exinsert">
 								
 					<div class="form-group">
 							<input type="hidden" name="id" value="<?=isset ($updatedata[0]->exam_id) ?$updatedata[0]->exam_id:''?>"/>
@@ -139,10 +139,10 @@
 						<td><?=isset ($exam2show->description)?$exam2show->description:''?></td>
 						<td><?=isset ($exam2show->Language_id)?$exam2show->Language_id:''?></td>
 						
-						<td><a href="<?=base_url();?>index.php/Manageexam2/delete/<?=isset ($exam2show->exam_id) ?$exam2show->exam_id:''?>">
+						<td><a href="<?=base_url();?>index.php/Exampg/exdelete/<?=isset ($exam2show->exam_id) ?$exam2show->exam_id:''?>">
 						<i class= "fa-trash"></i></a>
 								
-						<a href="<?=base_url();?>index.php/Manageexam2/index/<?=isset($exam2show->exam_id)?$exam2show->exam_id:''?>">
+						<a href="<?=base_url();?>index.php/Exampg/Mngexindex1/<?=isset($exam2show->exam_id)?$exam2show->exam_id:''?>">
 						<i class="fa-edit" style="margin-left:10px";></i></a></td>
 						</tr>
 						<?php }?>																			

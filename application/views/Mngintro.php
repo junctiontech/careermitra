@@ -30,7 +30,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Manageintro/insert">
+							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Careermitra/insert2">
 					<div class="form-group">	
 							<input type="hidden" name="id" value="<?=isset($updatedata[0]->Intro_id)?$updatedata[0]->Intro_id:''?>" />
 						<label class="col-sm-2 control-label">Select option </label>
@@ -154,10 +154,10 @@
 								<td><?=isset ($introshow->Description) ?$introshow->Description:''?></td>
 								<td><?=isset ($introshow->Language_id) ?$introshow->Language_id:''?></td>
 								
-								<td><a href="<?=base_url();?>index.php/Manageintro/delete/<?=isset ($introshow->Intro_id) ?$introshow->Intro_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Careermitra/delete2/<?=isset ($introshow->Intro_id) ?$introshow->Intro_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Manageintro/index/<?=isset($introshow->Intro_id)?$introshow->Intro_id:''?>">
+								<a href="<?=base_url();?>index.php/Careermitra/index5/<?=isset($introshow->Intro_id)?$introshow->Intro_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

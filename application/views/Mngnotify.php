@@ -31,7 +31,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>index.php/Managenotify/insert">
+							<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>index.php/Careermitra/insert3">
 					<div class="form-group">	
 							<input type="hidden" name="id" value="<?=isset($updatedata[0]->Notify_id) ?$updatedata[0]->Notify_id:''?>"/>
 						<label class="col-sm-2 control-label">Select option </label>
@@ -174,10 +174,10 @@
 								<td><?=isset ($notifyshow->Status) ?$notifyshow->Status:''?></td>
 								<td><?=isset ($notifyshow->Rq_date) ?$notifyshow->Rq_date:''?></td>
 							
-								<td><a href="<?=base_url();?>index.php/Managenotify/delete/<?=isset($notifyshow->Notify_id) ?$notifyshow->Notify_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Careermitra/delete/<?=isset($notifyshow->Notify_id) ?$notifyshow->Notify_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Managenotify/index/<?=isset($notifyshow->Notify_id)?$notifyshow->Notify_id:''?>">
+								<a href="<?=base_url();?>index.php/Careermitra/index6/<?=isset($notifyshow->Notify_id)?$notifyshow->Notify_id:''?>">
 								<i class="fa-edit" style="margin-left:10px"></i></a></td>
 							</tr>
 							

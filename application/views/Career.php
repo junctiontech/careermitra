@@ -511,9 +511,6 @@
 				
 				<div class="panel-body">
 					
-					
-					
-					
 						<?php foreach ($detail1 as $detail1show){?>
 						<h4 style="color:#8079C9 ;margin-top:15px">Introduction</h4>
 						<p style="color:grey"><?=isset ($detail1show->Introduction) ?$detail1show->Introduction:''?></p>

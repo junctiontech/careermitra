@@ -31,7 +31,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Managejob/insert">
+							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Jobpg/insert">
 								
 					<div class="form-group">
 					<input type="hidden" name="id" value="<?=isset($updatedata[0]->Job_id)?$updatedata[0]->Job_id:''?>" />
@@ -292,7 +292,7 @@
 								<td><?=isset ($jobshow->Selection_process) ?$jobshow->Selection_process:''?></td>
 								
 								<td><?php if(!empty($jobshow->Detail) && !empty($jobshow->Selection_process)){ if($jobshow->Selection_process=="Exam"){
-									$examname=$this->Managejob_model->examname_data($jobshow->Detail);
+									$examname=$this->Jobpg_model->examname_data($jobshow->Detail);
 									if(!empty($examname)){echo $examname[0]->Exam_name;}
 									
 										}
@@ -300,10 +300,10 @@
 								<?php }?>
 								<td><?=isset ($jobshow->Language_id) ?$jobshow->Language_id:''?></td>
 								
-								<td><a href="<?=base_url();?>index.php/Managejob/delete/<?=isset ($jobshow->Job_id) ?$jobshow->Job_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Jobpg/delete/<?=isset ($jobshow->Job_id) ?$jobshow->Job_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Managejob/index/<?=isset($jobshow->Job_id)?$jobshow->Job_id:''?>">
+								<a href="<?=base_url();?>index.php/Jobpg/Mngjbindex/<?=isset($jobshow->Job_id)?$jobshow->Job_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

@@ -66,9 +66,9 @@
 	<script src="<?=base_url();?>assets/js/jquery-ui/jquery-ui.min.js"></script>
 	
 	<!-- JS files for magzine view
-	<script type="text/javascript" src="<?=base_url();?>extras/jquery.min.1.7.js"></script>--->
+	<script type="text/javascript" src="<?=base_url();?>extras/jquery.min.1.7.js"></script>
 <script type="text/javascript" src="<?=base_url();?>extras/modernizr.2.5.3.min.js"></script>
-<script type="text/javascript" src="<?=base_url();?>extras/hash.js"></script>
+<script type="text/javascript" src="<?=base_url();?>extras/hash.js"></script>-->
 
 
 	<!-- JavaScripts initializations and stuff -->

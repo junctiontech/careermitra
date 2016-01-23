@@ -29,7 +29,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Managepapers/insert">
+							<form role="form" class="validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Exampg/insert3">
 								
 					<div class="form-group">
 					
@@ -180,10 +180,10 @@
 								<td><?=isset ($papershow->Subject) ?$papershow->Subject:''?></td>
 								<td><?=isset ($papershow->Paper_name) ?$papershow->Paper_name:''?></td>
 															
-								<td><a href="<?=base_url();?>index.php/Managepapers/delete/<?=isset ($papershow->Paper_id)?$papershow->Paper_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Exampg/delete3/<?=isset ($papershow->Paper_id)?$papershow->Paper_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Managepapers/index/<?=isset($papershow->Paper_id)?$papershow->Paper_id:''?>">
+								<a href="<?=base_url();?>index.php/Exampg/index3/<?=isset($papershow->Paper_id)?$papershow->Paper_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

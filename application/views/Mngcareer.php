@@ -38,21 +38,22 @@
 						
 							</script>
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Managecareer/insert">
+							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Careerpg/insert">
 								
 					<div class="form-group">
 					<input type="hidden" name="id" value="<?=isset ($updatedata[0]->career_id) ?$updatedata[0]->career_id:''?>"/>
 							<label class="col-sm-2 control-label"style="margin-top:10px" for="field-1">Alphabet</label>
 									
 								<div class="col-sm-10"style="margin-top:10px">
-									<input type="text" name="Alphabet_id" class="form-control" data-validate="required" "id="field-1" value="<?=isset ($updatedata[0]->Alphabet_id) ?$updatedata[0]->Alphabet_id:''?>" >
+									<input type="text" name="Alphabet_id" class="form-control" data-validate="required" id="field-1" value="<?=isset ($updatedata[0]->Alphabet_id) ?$updatedata[0]->Alphabet_id:''?>" >
 								</div>
 									
 									
 							<label class="col-sm-2 control-label"style="margin-top:10px" for="field-1">Career Name</label>
-									
+								
+								<span class="msg_box_1"></span>	
 								<div class="col-sm-10" style="margin-top:10px">
-									<input type="text" name="Career_name"class="form-control" data-validate="required" id="field-1" placeholder="Name" value="<?=isset ($updatedata[0]->Alphabet_id) ?$updatedata[0]->Alphabet_id:''?>">
+									<input type="text" name="Career_name" class="form-control" onblur="check_career('1');" data-validate="required" id="reg-career" placeholder="Name" value="<?=isset ($updatedata[0]->Alphabet_id) ?$updatedata[0]->Alphabet_id:''?>">
 								</div>
 								
 							
@@ -198,11 +199,11 @@
 						<td><?=isset ($careershow->Language_id) ?$careershow->Language_id:''?></td>
 								
 								
-								<td><a href="<?=base_url();?>index.php/managecareer/delete/<?=isset($careershow->career_id)?$careershow->career_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Careerpg/delete/<?=isset($careershow->career_id)?$careershow->career_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
 								
-								<a href="<?=base_url();?>index.php/managecareer/index/<?=isset($careershow->career_id)?$careershow->career_id:''?>">
+								<a href="<?=base_url();?>index.php/Careerpg/Mngcaindex/<?=isset($careershow->career_id)?$careershow->career_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

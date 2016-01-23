@@ -31,7 +31,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Manageinstitute/insert">
+							<form role="form" class="validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Institutepg/Mnginsindex">
 								
 					<div class="form-group">
 					<input type="hidden" name="id" value="<?=isset($updatedata[0]->Institute_id)?$updatedata[0]->Institute_id:''?>" />
@@ -127,6 +127,7 @@
 								</div>	
 		
 					</div>
+					</form>
 				</div>
 			</div>	
 			
@@ -211,10 +212,10 @@
 								<td><?= isset ($instituteshow->Latitude) ?$instituteshow->Latitude:''?></td>
 								<td><?= isset ($instituteshow->Language_id) ?$instituteshow->Language_id:''?></td>
 								
-								<td><a href="<?=base_url();?>index.php/Manageinstitute/delete/<?=isset ($instituteshow->Institute_id) ?$instituteshow->Institute_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Institutepg/delete/<?=isset ($instituteshow->Institute_id) ?$instituteshow->Institute_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Manageinstitute/index/<?=isset($instituteshow->Institute_id)?$instituteshow->Institute_id:''?>">
+								<a href="<?=base_url();?>index.php/Institutepg/Mnginsindex/<?=isset($instituteshow->Institute_id)?$instituteshow->Institute_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

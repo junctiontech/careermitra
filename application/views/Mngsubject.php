@@ -29,7 +29,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Managesubject/insert">
+							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Exampg/insert4">
 								
 					<div class="form-group">
 							<input type="hidden" name="id" value="<?=isset($updatedata[0]->Subject_id)?$updatedata[0]->Subject_id:''?>" />
@@ -106,10 +106,10 @@
 								<td><?=isset ($subshow->Subject) ?$subshow->Subject:''?></td>
 								
 									
-								<td><a href="<?=base_url();?>index.php/Managesubject/delete/<?=isset ($subshow->Subject_id)?$subshow->Subject_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Exampg/delete4/<?=isset ($subshow->Subject_id)?$subshow->Subject_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
-								<a href="<?=base_url();?>index.php/Managesubject/index/<?=isset($subshow->Subject_id)?$subshow->Subject_id:''?>">
+								<a href="<?=base_url();?>index.php/Exampg/index4/<?=isset($subshow->Subject_id)?$subshow->Subject_id:''?>">
 								<i class="fa-edit" style="margin-left:10px";></i></a></td>
 							</tr>
 						<?php }?>

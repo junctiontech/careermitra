@@ -28,7 +28,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Managemapping/insert">
+							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Institutepg/Mainsert">
 								
 					<div class="form-group">
 							<input type="hidden" name="id" value="<?=isset($updatedata[0]->Mapping_id)?$updatedata[0]->Mapping_id:''?>" />
@@ -130,7 +130,7 @@
 								<td><?=isset ($data1show->Institute_name) ?$data1show->Institute_name:''?></td>	
 								
 									
-								<td><a href="<?=base_url();?>index.php/Managemapping/delete/<?=isset ($data1show->Mapping_id) ?$data1show->Mapping_id:''?>">
+								<td><a href="<?=base_url();?>index.php/Institutepg/Madelete/<?=isset ($data1show->Mapping_id) ?$data1show->Mapping_id:''?>">
 								<i class= "fa-trash"></i></a>
 								
 								

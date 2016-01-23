@@ -75,25 +75,25 @@ class Managerole extends CI_Controller
 			
 	}
 	
-	function role_permission($info=false)
+	function Role_permission($info=false)
 	{	
 			Authority::is_logged_in();
-		if(Authority::checkAuthority('role_permission')==true)
+		if(Authority::checkAuthority('Role_permission')==true)
 				{
 					redirect('index.php/Loginpg');
 				}
 			$functions_list=$this->data['functions_list']=$this->Authority_model->functions_list();
 			$permissions=$this->data['permissions']=$this->Authority_model->permissions($info);
 			$this->parser->parse('Adminheader',$this->data);
-			$this->load->view('role_permission',$this->data);
+			$this->load->view('Role_permission',$this->data);
 			$this->parser->parse('Adminfooter',$this->data);
 	}
 	
 	
-	function role_management($info=false)
+	function Role_management($info=false)
 	{
 			Authority::is_logged_in();
-		if(Authority::checkAuthority('role_management')==true)
+		if(Authority::checkAuthority('Role_management')==true)
 				{
 					redirect('index.php/Loginpg');
 				}
@@ -101,15 +101,15 @@ class Managerole extends CI_Controller
 		
 	
 		$this->parser->parse('Adminheader',$this->data);
-			$this->load->view('role_management');
+			$this->load->view('Role_management');
 			$this->parser->parse('Adminfooter',$this->data);
 		
 	
 	}
-	function update_role_permission($info1)
+	function update_Role_permission($info1)
 		{	
 			Authority::is_logged_in();
-		if(Authority::checkAuthority('update_role_permission')==true)
+		if(Authority::checkAuthority('update_Role_permission')==true)
 				{
 					redirect('index.php/Loginpg');
 				}
@@ -123,12 +123,12 @@ class Managerole extends CI_Controller
 				{
 					$value .= "('".$data['role']."','".$data['function'][$i]."','".$data['read'][$i]."','".$data['execute'][$i]."')".",";
 				}
-				if($this->Authority_model->update_role_permission(rtrim($value,","),$filter))
+				if($this->Authority_model->update_Role_permission(rtrim($value,","),$filter))
 				{
 					
 					$this->session->set_flashdata('message_type', 'success message	');
 					$this->session->set_flashdata('message', $this->config->item("user").' Role updated successfully');
-					redirect("index.php/Managerole/role_permission");
+					redirect("index.php/Managerole/Role_permission");
 					
 				}
 				else
@@ -150,7 +150,7 @@ class Managerole extends CI_Controller
 			$this->Authority_model->delete_role($role);
 			$this->session->set_flashdata('message_type', 'success');
 			$this->session->set_flashdata('message', $this->config->item("user").' Delete Successfully');
-			redirect('index.php/Managerole/role_management');
+			redirect('index.php/Managerole/Role_management');
 		}
 	}
 	
@@ -269,7 +269,7 @@ class Managerole extends CI_Controller
 						$this->Authority_model->delete_user($filter,'users');
 						$this->session->set_flashdata('message_type', 'success');        
                         $this->session->set_flashdata('message', $this->config->item("user").' Delete Successfully');
-						redirect('index.php/Managerole/user_role');		
+						redirect('index.php/Managerole/User_role');		
 						}
 	}	
 	

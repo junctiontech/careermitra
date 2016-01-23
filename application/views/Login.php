@@ -48,12 +48,12 @@
 									<input type="password" name="password" class="form-control" id="password-1" placeholder="Enter your password">
 								</div>
 								
-								<div class="form-group">
+								<!--<div class="form-group">
 									<label>
 										<input type="checkbox" class="cbr" checked>
 										Remember me next time
 									</label>
-								</div>
+								</div>-->
 								
 								<div class="form-group">
 									<button type="submit" style="background-color:#8079C9; border-color:#8079C9; color:white; border-radius:4px";class="btn btn-info btn-single">Sign in</button>

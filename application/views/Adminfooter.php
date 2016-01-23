@@ -25,14 +25,10 @@
 			</footer>
 		</div>
 		
-			
-		
-		
 	
+	<!---Javascript added---->
 	
-
-	
-	
+	<script src="<?=base_url();?>/js/common_function.js"></script>
 	
 <link rel="stylesheet" href="<?=base_url();?>/assets/js/datatables/dataTables.bootstrap.css">
 <link rel="stylesheet" href="<?=base_url();?>/assets/js/daterangepicker/daterangepicker-bs3.css">
