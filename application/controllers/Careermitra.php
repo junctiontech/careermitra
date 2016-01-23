@@ -45,7 +45,7 @@ class Careermitra extends CI_Controller
 	function Adminindex()
 		
 		{	$this->parser->parse('Adminheader',$this->data);
-			$this->load->view('admin');
+			$this->load->view('Admin');
 			$this->parser->parse('Adminfooter',$this->data);
 		}
 		
