@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <link href="<?=base_url();?>/../css/xenon-forms.css" rel="stylesheet"> 
    <!--<link rel="stylesheet" href="<?=base_url();?>/../css/bootstrap.css">-->
     <link href="<?=base_url();?>/../css/xenon-core.css" rel="stylesheet"> 
+	 <link href="<?=base_url();?>/../css/navbar.css" rel="stylesheet">
 	<link href="<?=base_url();?>/../css/xenon-skins.css" rel="stylesheet">
 	<link href="<?=base_url();?>/../css/xenon-components.css" rel="stylesheet">
     <link href="<?=base_url();?>/../carousel_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -40,83 +41,82 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- NAVBAR
 ================================================== -->
  
-<div class="navbar-wrapper">
-  <div class="container">
-
-        <nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-	<a class="navbar-brand" href="<?=base_url();?>index.php/Careermitra/index1" style="font-size:25px">CareerMitra</a>
+<!--<div class="navbar-wrapper">-->
+	
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="<?=base_url();?>index.php/Careermitra/index1" style="font-size:25px">CareerMitra</a>
      
-    </div>
+				</div>
     
-	<div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
 	   
-        <li class="active"><a href="<?=base_url();?>"><i class="fa fa-home fa-x"></i></a></li>
-		<li><a href="<?=base_url();?>index.php/Careerpg">Career</a></li>
-		<li><a href="<?=base_url();?>index.php/Exampg">Exams</a></li>
-		<li><a href="<?=base_url();?>index.php/Jobpg">Jobs</a></li>
-		<li><a href="<?=base_url();?>index.php/Institutepg">Institutes</a></li>
-		<!--<li><a href="<?=base_url();?>index.php/Gallerypg">Gallery</a></li>
-		<!--<li class="dropdown" >
+					<li class="active"><a href="<?=base_url();?>"><i class="fa fa-home fa-x"></i></a></li>
+					<li><a href="<?=base_url();?>index.php/Careerpg">Career</a></li>
+					<li><a href="<?=base_url();?>index.php/Exampg">Exams</a></li>
+					<li><a href="<?=base_url();?>index.php/Jobpg">Jobs</a></li>
+					<li><a href="<?=base_url();?>index.php/Institutepg">Institutes</a></li>
+					<!--<li><a href="<?=base_url();?>index.php/Gallerypg">Gallery</a></li>
+					<!--<li class="dropdown" >
 		
-		<a class="dropdown-toggle" data-toggle="dropdown"id="nav1" href="#">Forum
-          <span class="caret"></span></a>
-		 <ul class="dropdown-menu">
-            <li><a href="<?=base_url();?>index.php/Askquerypg">Ask query</a></li>
-            <li><a href="<?=base_url();?>index.php/Blogpg">Blog</a></li>
-            <li><a href="<?=base_url();?>index.php/Mentorpg">Mentors</a></li> 
-          </ul>
-		</li>-->
+						<a class="dropdown-toggle" data-toggle="dropdown"id="nav1" href="#">Forum
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+							<li><a href="<?=base_url();?>index.php/Askquerypg">Ask query</a></li>
+							<li><a href="<?=base_url();?>index.php/Blogpg">Blog</a></li>
+							<li><a href="<?=base_url();?>index.php/Mentorpg">Mentors</a></li> 
+							</ul>
+							</li>-->
 		 
-				<li class="dropdown" >
-		  <a class="dropdown-toggle" data-toggle="dropdown"id="nav2" href="#">Contact us
-          <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-            <li><a href="<?=base_url();?>index.php/Careermitra/index1">About us</a></li>
-            <li><a href="<?=base_url();?>index.php/Careermitra/index2">Contact us</a></li>
-             
-          </ul>
-     </li>
+					<li class="dropdown" >
+						<a class="dropdown-toggle" data-toggle="dropdown"id="nav2" href="#">Contact us
+				<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+						<li><a href="<?=base_url();?>index.php/Careermitra/index1">About us</a></li>
+						<li><a href="<?=base_url();?>index.php/Careermitra/index2">Contact us</a></li>
+						</ul>
+					</li>
         
-      </ul>
+				</ul>
     
   
-	<ul class="nav navbar-nav navbar-right">
-	<li class="dropdown" >
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown" >
 	
-	<?php $userdata =$this->session->userdata('user_data');
-		$name=$userdata['First_name'];
-		$id=$userdata['user_id'];
-	      if(!empty($userdata))
-		  { ?>
-	  
-	  
-	  
-	  <li class="dropdown user-profile">
-	<?php foreach ($student as $studentshow){?>
-	
-	
+						<?php $userdata =$this->session->userdata('user_data');
+							$name=$userdata['First_name'];
+							$id=$userdata['user_id'];
+							if(!empty($userdata))
+							{ ?>
+						
+					</li>
+					
+					<li class="dropdown user-profile">
+					
+						<?php foreach ($student as $studentshow){?>
 						<a href="#" data-toggle="dropdown">
+						
 						<?php if(!empty($studentshow->Image)){?>
-							<img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" alt="user-image" class="img-circle img-inline" height="32" width="35"  style="margin-top:3px"/>
-							<?php } else {?>
-							<img src="<?=base_url();?>/assets/images/user-2.png" style="height:30px; width:30px">
-							<?php } ?>
+						<img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" alt="user-image" class="img-circle img-inline" height="32" width="35"  style="margin-top:3px"/>
+						<?php } else {?>
+						<img src="<?=base_url();?>/assets/images/user-2.png" style="height:30px; width:30px">
+						<?php } ?>
 							
 							<span>
 								<?php echo $name ?>
 								<i class="fa-angle-down"></i>
 							</span>
 						</a>
-		
+					
+				
 						<ul class="dropdown-menu user-profile-menu list-unstyled">
 							<li>
 								<a href="<?=base_url();?>index.php/Loginpg/editprofile/<?=isset($studentshow->user_id) ?$studentshow->user_id:''?>">
@@ -150,25 +150,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		else { ?>
 		
-		  <a class="dropdown-toggle" data-toggle="dropdown"id="nav2" href="#" ><span class="glyphicon glyphicon-user" >Sign up
-          <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-	<li><a href="<?=base_url();?>index.php/Loginpg/stview"><span class="glyphicon glyphicon-user">Student</a></li>
-	<li><a href="<?=base_url();?>index.php/Loginpg/mtview"><span class="glyphicon glyphicon-user">Mentor</a></li>
-	</ul></li>
-	<li><a href="<?=base_url();?>index.php/Loginpg"><span class="glyphicon glyphicon-log-in">Login</a></li>
+					<a class="dropdown-toggle" data-toggle="dropdown"id="nav2" href="#" ><span class="glyphicon glyphicon-user" >Sign up
+						<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?=base_url();?>index.php/Loginpg/stview"><span class="glyphicon glyphicon-user">Student</a></li>
+								<li><a href="<?=base_url();?>index.php/Loginpg/mtview"><span class="glyphicon glyphicon-user">Mentor</a></li>
+							</ul>
+						<li><a href="<?=base_url();?>index.php/Loginpg"><span class="glyphicon glyphicon-log-in">Login</a></li>
 	
-		<?php }?>
-	</ul>
+						<?php }?>
+				</ul>
 	
-	</div>
+			</div>
           
         </nav>
 
-    </div>
-    </div>
-	</div>
-	</div>
+    
+   <!-- </div>-->
+	
 	
 	
  
