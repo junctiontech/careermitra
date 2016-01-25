@@ -114,7 +114,7 @@
 						Street-<?=isset ($studentshow->street) ?$studentshow->street:''?></br></br>
 						Line2-<?=isset ($studentshow->Line2) ?$studentshow->Line2:''?></br></br>
 						City-<?=isset ($studentshow->City) ?$studentshow->City:''?></br></br>
-						State-<?=isset ($studentshow->State_name) ?$studentshow->State_name:''?></br></br>
+						State-<?=isset ($studentshow->State) ?$studentshow->State:''?></br></br>
 						Zip-<?=isset ($studentshow->ZIP) ?$studentshow->ZIP:''?></td>
                      </tr></tr>
 

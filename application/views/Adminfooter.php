@@ -44,7 +44,7 @@
 
 	<!-- JavaScripts initializations and stuff -->
 	<script src="<?=base_url();?>/assets/js/xenon-custom.js"></script>
-	<script src="<?=base_url();?>/js/common_function.js"></script>
+	
 	<script src="<?=base_url();?>/assets/js/daterangepicker/daterangepicker.js"></script>
 	<script src="<?=base_url();?>/assets/js/datepicker/bootstrap-datepicker.js"></script>
 

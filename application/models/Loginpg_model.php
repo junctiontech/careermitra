@@ -59,9 +59,9 @@ class Loginpg_model extends CI_Model
 	 
 	 function stupro($user_id=false)
 	 {
-		 $qry=$this->db->query("select user_id,First_name, Last_name,Image,role_id,Gender,DOB,Contact_no,House_no,street,Line2,City,State_id,State,State_name,ZIP,PG_subject,
-									PG_university,G_subject,G_university,School_subject,School_name,Qualification,Current_job,More_info,Other,usermailid from users,state_master where users.user_id=$user_id 
-											and users.state=state_master.State_id");
+		 $qry=$this->db->query("select user_id,First_name, Last_name,Image,role_id,Gender,DOB,Contact_no,House_no,street,Line2,City,State,ZIP,PG_subject,
+									PG_university,G_subject,G_university,School_subject,School_name,Qualification,Current_job,More_info,Other,usermailid from users where users.user_id=$user_id 
+											");
 		return $qry->Result();
 	 }
 	

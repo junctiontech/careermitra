@@ -180,7 +180,7 @@
 									<Option value="">Select</option>
 									<?php foreach($state as $stateshow){?>
 									
-									<Option value= "<?=isset($stateshow->State_id) ?$stateshow->State_id:''?>"<?php if(!empty($updatedata[0]->State_name))
+									<Option value= "<?=isset($stateshow->State_name) ?$stateshow->State_name:''?>"<?php if(!empty($updatedata[0]->State_name))
 									{ if($updatedata[0]->State_name==$stateshow->State_name)
 									{  echo"selected"; }   }?>>
 									<?=isset($stateshow->State_name)?$stateshow->State_name:''?></option> 

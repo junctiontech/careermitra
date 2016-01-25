@@ -2,17 +2,17 @@
 ------------------------------------------------------->
 
 
-   <div class="container">
+<div class="container">
   <div class="jumbotron"> 
 	
      <h1>About us</h1>
   </div>
   
-</div>
+
 
 <!-------------------search button-----------
 ---------------------------------------------->
-<div class="container">
+<!--<div class="container">-->
 	
 
 
