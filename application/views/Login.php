@@ -5,10 +5,9 @@
 <div class="container">
 
 	<div class="row">
-		<div class= " col-sm-10 col-md-8">
-					<!---<h1 style="margin-top:100px; margin-left:395px; font-size:45px; color:#8079C9;text-shadow:5px 5px 10px #8079c9;">CareerMitra</h1>--->
-					<!---<h3  style="margin-top:20px; margin-left:400px;" >A roadway  to success</h3>-->
-				<div class="panel panel-default" style="margin-top:100px; margin-left:300px; margin-bottom:100px;">
+		<div class= "col-sm-6 col-md-8">
+					
+				<div class="panel panel-default" style="margin-top:100px; margin-bottom:100px;float:right">
 					<?php  if($this->session->flashdata('message_type')=='success') { ?>
 					
 					<div class="row">
@@ -53,10 +52,12 @@
 								</div>-->
 								
 								<div class="form-group">
-									<button type="submit" style="background-color:#8079C9; border-color:#8079C9; color:white; border-radius:4px";class="btn btn-info btn-single">Sign in</button>
+									<button type="submit" style="background-color:#8079C9; border-color:#8079C9; color:white; border-radius:4px";class="btn btn-info  btn-single">Sign in</button>
+									
 								<a href="<?=base_url();?>index.php/CareerMitra/register"><button type="button" style="background-color:#8079C9; border-color:#8079C9; color:white"; class="btn btn-info btn-single pull-right" >Register Now</button>
-								</div>
 								
+								</div>
+								<a href="<?=base_url();?>index.php/Loginpg/reset_password_view"><button type="button" style="background-color:#8079C9; border-color:#8079C9; color:white"; class="btn btn-info btn-single pull-right" >Forgot Password</button>
 							</form>
 							
 						</div>

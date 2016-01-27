@@ -17,6 +17,7 @@ class Loginpg extends CI_Controller {
 		$this->load->library('Authority');
 		$this->load->model('Authority_model');
 		$this->load->library('Upload');
+		$this->load->library('email');
 		
 		$user_session_data= $this->session->userdata('user_data');
 		
@@ -399,6 +400,127 @@ function insert1()
 		}
 	}
 	
+	function reset_password_view()
+	{
+		$this->parser->parse('Header',$this->data);
+		$this->load->view('Password',$this->data);
+		$this->parser->parse('Footer',$this->data);
+	}
+	
+	function reset_password()
+	{
+		$UserEmail=$this->input->post('usermailid');
+		
+		$code=substr(md5(microtime()),rand(0,26),5);
+		
+		{
+			$EmailRegApp=$this->Loginpg_model->get_reset_password('users',array('usermailid'=>$UserEmail));
+			if($EmailRegApp)
+			{
+				
+				$updatePassword=$this->Loginpg_model->set_reset_password('users',array('usermailid'=>$UserEmail),array('password'=>$code));
+			}
+			else
+			{
+				  ?><script> alert('Email Id Does Not Exist');</script><?php
+				  redirect('http://junctiondev.cloudapp.net/careermitra','refresh');
+			}
+		}
+		if($updatePassword)
+		{
+			$subject=" Zero Erp:- Reset Your Password ";
+			$message= " <html><body><h3>Hello: $id  </h3><p> Please Use This Temporary Password And Reset Your Password <br> Temporary Password:- <b>$code  </b><br> </p><p><h3>Please Click In This Link And Update Your Password   :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/reset_confirm_password/$id</p></body></html>";
+			$name='Junction Software Pvt Ltd';
+			/*
+			 This example shows settings to use when sending via Google's Gmail servers.
+			 */
+			//SMTP needs accurate times, and the PHP time zone MUST be set
+			//This should be done in your php.ini, but this is how to do it if you don't have access to that
+			date_default_timezone_set('Etc/UTC');
+				
+			require 'PHPMailer/PHPMailerAutoload.php';
+				
+			//Create a new PHPMailer instance
+			$mail = new PHPMailer;
+				
+			//Tell PHPMailer to use SMTP
+			$mail->isSMTP();
+				
+			//Enable SMTP debugging
+			// 0 = off (for production use)
+			// 1 = client messages
+			// 2 = client and server messages
+			$mail->SMTPDebug = 0;
+				
+			//Ask for HTML-friendly debug output
+			$mail->Debugoutput = 'html';
+				
+			//Set the hostname of the mail server
+			$mail->Host = 'smtp.gmail.com';
+				
+			//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+			$mail->Port = 587;
+				
+			//Set the encryption system to use - ssl (deprecated) or tls
+			$mail->SMTPSecure = 'tls';
+				
+			//Whether to use SMTP authentication
+			$mail->SMTPAuth = true;
+				
+			//Username to use for SMTP authentication - use full email address for gmail
+			$mail->Username = "dev4junction@gmail.com";
+				
+			//Password to use for SMTP authentication
+			$mail->Password = 'initial1$';
+				
+			//Set who the message is to be sent from
+			$mail->setFrom($UserEmail,$name);
+				
+			//Set an alternative reply-to address
+			$mail->addReplyTo('dev4junction@gmail.com', $name);
+				
+			//Set who the message is to be sent to
+			$mail->addAddress($UserEmail);
+				
+			//Set the subject line
+			$mail->Subject = $subject;
+				
+			//Read an HTML message body from an external file, convert referenced images to embedded,
+			//convert HTML into a basic plain-text alternative body
+			$mail->msgHTML($message);
+				
+			//Replace the plain text body with one created manually
+			$mail->AltBody = 'This is a plain-text message body';
+				
+			//Attach an image file
+			//$mail->addAttachment($uploadfile,$filename);
+				
+			//send the message, check for errors
+			if (!$mail->send())
+			{
+				print "We encountered an error sending your mail";
+					
+			}
+				?><script> alert('Please Check Your Registered Email');</script><?php
+				redirect('http://junctiondev.cloudapp.net/careermitra','refresh');
+		}
+		else 
+		{
+			?><script> alert('Email Id Does Not Exist');</script><?php
+			 redirect('http://junctiondev.cloudapp.net/careermitra','refresh');
+		}
+			
+	}
+	/* function for activate account with help of mail  */
+	function activate_org($id=false)
+	{
+		$activate_org=$this->data['activate_org']=$this->Loginpg_model->activate_org('users',array('user_id'=>$id));
+		if($activate_org)
+		{
+			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
+			redirect('http://junctiondev.cloudapp.net/careermitra','refresh');
+		}
+	}
 	
 
 }
