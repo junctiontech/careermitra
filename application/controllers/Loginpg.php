@@ -511,7 +511,7 @@ function insert1()
 		}
 			
 	}
-	/* function for activate account with help of mail  */
+	/* function for activate account with help of mail  
 	function activate_org($id=false)
 	{
 		$activate_org=$this->data['activate_org']=$this->Loginpg_model->activate_org('users',array('user_id'=>$id));
