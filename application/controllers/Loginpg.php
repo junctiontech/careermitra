@@ -513,16 +513,7 @@ function insert1()
 	}
 	
 
-	/* function for activate account with help of mail  
-	function activate_org($id=false)
-	{
-		$activate_org=$this->data['activate_org']=$this->Loginpg_model->activate_org('users',array('user_id'=>$id));
-		if($activate_org)
-		{
-			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
-			redirect('http://junctiondev.cloudapp.net/careermitra','refresh');
-		}
-	}
+	
 	
 
 }
