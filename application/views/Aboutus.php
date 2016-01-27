@@ -33,7 +33,7 @@
 	
 <div class="row">
 		<?php if(!empty($about)){?>
-	<div class="col-md-8">
+	<div class="col-sm-6 col-md-8">
 		
 					<!-- Default panel -->
 			<div class="panel panel-color panel-purple" style="margin-top:30px">

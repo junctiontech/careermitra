@@ -37,7 +37,7 @@ class Careerpg extends CI_Controller
 			if(!empty($id))
 			{
 				$this->data['detail1']=$this->Careerpg_model->detail($id);
-				
+			
 			}
 		 else
 		 {	
@@ -45,6 +45,7 @@ class Careerpg extends CI_Controller
 			$this->data['intro']= $this->Careerpg_model->introget_data();
 		
 			$this->data['option']= $this->Careerpg_model->optionget_data();
+			
 			$this->data['notify']= $this->Careerpg_model->notifyget_data();
 		 
 		 }

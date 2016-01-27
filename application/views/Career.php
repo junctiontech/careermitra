@@ -48,7 +48,7 @@
 	
 	<div class="row">
 	<?php if(!empty($notify)){?>
-		<div class="col-md-4">
+		<div class="col-sm-6 col-md-4">
 					
 					<!-- Default panel -->
 			<div class="panel panel-color panel-purple" style="margin-top:30px">
@@ -74,7 +74,7 @@
 		
 
 	
-<div class="col-md-8">
+<div class="col-sm-10 col-md-8">
 <?php if(!empty($intro)){?>	
 	<div class="panel panel-color panel-purple" style="margin-top:30px">
 				<div class="panel-heading">
@@ -145,7 +145,7 @@
 					
 			<div class="row" id="exam">	
 			
-				<div class="col-sm-4" name="A" id="Alphabet" >
+				<div class="col-sm-4 col-md-3" name="A " id="Alphabet" >
 					<p style="color:black">A</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="A"){ ?>
@@ -158,7 +158,7 @@
 									
 				</div>	
 				
-				<div class="col-sm-4" name="B" id="Alphabet" >
+				<div class="col-sm-4 col-md-3" name="B " id="Alphabet" >
 					<p style="color:black">B</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="B"){ ?>
@@ -171,7 +171,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="C"id="Alphabet" >
+				<div class="col-sm-4 col-md-3" name="C"id="Alphabet" >
 					<p style="color:black">C</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="C"){ ?>
@@ -185,7 +185,7 @@
 				</div>
 				
 				
-				<div class="col-sm-4" name="D" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="D" id="Alphabet">
 					<p style="color:black">D</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="D"){ ?>
@@ -198,7 +198,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="E" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="E" id="Alphabet">
 					<p style="color:black">E</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="E"){ ?>
@@ -211,7 +211,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="F"id="Alphabet" >
+				<div class="col-sm-4 col-md-3" name="F"id="Alphabet" >
 					<p style="color:black">F</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="F"){ ?>
@@ -224,7 +224,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="G"id="Alphabet" >
+				<div class="col-sm-4 col-md-3" name="G"id="Alphabet" >
 					<p style="color:black">G</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="G"){ ?>
@@ -237,7 +237,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="H"id="Alphabet" >
+				<div class="col-sm-4 col-md-3" name="H"id="Alphabet" >
 					<p style="color:black">H</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="H"){ ?>
@@ -250,7 +250,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="I" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="I" id="Alphabet">
 					<p style="color:black">I</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="I"){ ?>
@@ -263,7 +263,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="J" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="J" id="Alphabet">
 					<p style="color:black">J</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="J"){ ?>
@@ -276,7 +276,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="K" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="K" id="Alphabet">
 					<p style="color:black">K</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="K"){ ?>
@@ -289,7 +289,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="L" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="L" id="Alphabet">
 					<p style="color:black">L</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="L"){ ?>
@@ -302,7 +302,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="M" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="M" id="Alphabet">
 					<p style="color:black">M</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="M"){ ?>
@@ -315,7 +315,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="N" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="N" id="Alphabet">
 					<p style="color:black">N</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="N"){ ?>
@@ -328,7 +328,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="O" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="O" id="Alphabet">
 					<p style="color:black">O</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="O"){ ?>
@@ -341,7 +341,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="P" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="P" id="Alphabet">
 					<p style="color:black">P</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="P"){ ?>
@@ -354,7 +354,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="Q" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="Q" id="Alphabet">
 					<p style="color:black">Q</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="Q"){ ?>
@@ -367,7 +367,7 @@
 								
 				</div>
 				
-				<div class="col-sm-4" name="R" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="R" id="Alphabet">
 					<p style="color:black">R</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="R"){ ?>
@@ -380,7 +380,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="S" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="S" id="Alphabet">
 					<p style="color:black">S</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="S"){ ?>
@@ -393,7 +393,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="T" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="T" id="Alphabet">
 					<p style="color:black">T</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="T"){ ?>
@@ -406,7 +406,7 @@
 								
 				</div>
 				
-				<div class="col-sm-4" name="U" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="U" id="Alphabet">
 					<p style="color:black">U</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="U"){ ?>
@@ -419,7 +419,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="V" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="V" id="Alphabet">
 					<p style="color:black">V</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="V"){ ?>
@@ -432,7 +432,7 @@
 								
 				</div>
 				
-				<div class="col-sm-4" name="W"id="Alphabet" >
+				<div class="col-sm-4 col-md-3" name="W"id="Alphabet" >
 					<p style="color:black">W</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="W"){ ?>
@@ -445,7 +445,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="X"id="Alphabet" >
+				<div class="col-sm-4 col-md-3" name="X"id="Alphabet" >
 					<p style="color:black">X</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="X"){ ?>
@@ -458,7 +458,7 @@
 								
 				</div>
 				
-				<div class="col-sm-4" name="Y" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="Y" id="Alphabet">
 					<p style="color:black">Y</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="Y"){ ?>
@@ -471,7 +471,7 @@
 									
 				</div>
 				
-				<div class="col-sm-4" name="Z" id="Alphabet">
+				<div class="col-sm-4 col-md-3" name="Z" id="Alphabet">
 					<p style="color:black">Z</p>
 						
 					<?php foreach($option as $optionshow) { if($optionshow->Alphabet_id=="Z"){ ?>
@@ -500,7 +500,7 @@
 		<div class="row">
 						
 				<?php if(!empty($detail1)){?>
-		<div class="col-md-12">				
+		<div class="col-sm-12 col-md-12">				
 			<div class="panel panel-color panel-purple">
 				<div class="panel-heading">
 					<?php foreach ($detail1 as $detail1show){?>

@@ -109,7 +109,7 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					
+					<div class="table-responsive">
 					<script type="text/javascript">
 					function limitText(limitField, limitCount, limitNum) {
 							if (limitField.value.length > limitNum) {
@@ -129,7 +129,7 @@
 					</script>
 					
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
+						<thead style="white-space:nowrap;">
 							<tr>
 								<th>Option</th>
 								<th>Introduction</th>
@@ -166,7 +166,7 @@
 					</table>
 					
 				</div>
-			
+			</div>
 	</div>
 </div>
 </div>	

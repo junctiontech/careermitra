@@ -127,7 +127,7 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					
+					<div class="table-responsive">
 					<script type="text/javascript">
 					jQuery(document).ready(function($)
 					{
@@ -140,7 +140,7 @@
 					</script>
 					
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
+						<thead style="white-space:nowrap;">
 							<tr>
 								<th>Option</th>
 								<th>Description</th>
@@ -187,7 +187,7 @@
 					</table>
 					
 				</div>
-			
+			</div>
 	</div>
 </div>
 </div>	

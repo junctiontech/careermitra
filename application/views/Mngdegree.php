@@ -78,7 +78,7 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					
+					<div class="table-responsive">	
 					<script type="text/javascript">
 					jQuery(document).ready(function($)
 					{
@@ -90,8 +90,8 @@
 					});
 					</script>
 					
-					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
+					<table id="example-1" cellspacing="0" class="table table-small-font table-bordered table-striped">
+							<thead style="white-space:nowrap;">
 							<tr>
 								<th>Degree Name</th>
 								<th>Term</th>
@@ -130,7 +130,7 @@
 					</table>
 					
 				</div>
-			
+			</div>
 	</div>
 </div>
 </div>	
