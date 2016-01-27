@@ -511,6 +511,8 @@ function insert1()
 		}
 			
 	}
+	
+
 	/* function for activate account with help of mail  
 	function activate_org($id=false)
 	{
