@@ -448,7 +448,7 @@ function insert1()
 			if($EmailRegApp)
 			{
 				
-				$updatePassword=$this->Loginpg_model->set_reset_password('users',array('usermailid'=>$UserEmail),array('password'=>md5($code));
+				$updatePassword=$this->Loginpg_model->set_reset_password('users',array('usermailid'=>$UserEmail),array('password'=>md5($code)));
 			}
 			else
 			{
