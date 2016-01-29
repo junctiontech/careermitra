@@ -1,9 +1,43 @@
 <div class="container" style="padding-top: 60px;">
+<link href="<?=base_url();?>/../css/custom11.css" rel="stylesheet">
+<link href="<?=base_url();?>/../css/css/tooplate_style.css" rel="stylesheet">
+ <body>
+
+
  
+ <?php foreach ($student as $studentshow){?>
+	
+<form role="form" class="form-horizontal" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
 
-<?php foreach ($student as $studentshow){?>
- <h1 class="page-header">Edit Profile</h1>
+   
+ 
+      <div class="text-center">
 
+		
+	  
+		
+	   <?php if(!empty($studentshow->Image)){?>
+        <img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px; margin-top:10px;"  alt="user image">
+         <?php } else {?>
+		 <img src="<?=base_url();?>/assets/images/user-2.png" style="height:200px; width:200px">
+		<?php } ?>
+		
+		<h5 style="color:white">Upload a different photo...</h5>
+        <input type="file" class="text-center center-block well well-sm" name="file">
+      </div>
+		
+	
+
+</form>
+    
+    <!-- edit form column -->
+
+	
+
+<div id="tooplate_main_top"></div>
+    <div id="tooplate_main" >
+
+<h1 class="page-header">Edit profile</h1>
 <form role="form" class="form-horizontal" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
   <div class="row">
 
@@ -12,31 +46,9 @@
    
 
 
-   <!-- left column -->
-    <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="text-center">
-	  
-	   <?php if(!empty($studentshow->Image)){?>
-        <img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px" alt="user image">
-         <?php } else {?>
-		 <img src="<?=base_url();?>/assets/images/user-2.png" style="height:200px; width:200px">
-		<?php } ?>
-		
-		<h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block well well-sm" name="file">
-      </div>
-		
-		<div class="col-md-4 col-sm-6 col-xs-12">
 
-            <input class="btn btn-primary" value="Change password" type="button" style="margin-top:20px; margin-left:20px;background-color:#8079C9;">
-            <span></span>
-            <input class="btn btn-primary" value="Change role" type="button" style="margin-top:20px; margin-left:20px; background-color:#8079C9;">
-        </div>
-
-
-    </div>
     <!-- edit form column -->
-    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="margin-left:140px ; margin-top:10px">
     <!--  <div class="alert alert-info alert-dismissable">
         <a class="panel-close close" data-dismiss="alert">×</a> 
         <i class="fa fa-coffee"></i>
@@ -256,8 +268,7 @@
 		</div>						 
         </div>-->
 		
-		
-	
+
 
 <div class="form-group">
           <label class="col-md-3 control-label"></label>
@@ -274,4 +285,17 @@
 </form>
 <?php }?>
 
-</div>
+</div>	
+       
+    </div> <!-- end of main -->
+    <div id="tooplate_main_bottom"></div>
+		
+
+</body>
+
+
+
+   
+
+
+

@@ -1,0 +1,28 @@
+
+#tooplate_main_top { 
+	width: 1040px; 
+	height: 10px; 
+margin-left:90px;
+margin-top:60px;
+	background: url(../images/content_top.png) no-repeat; 
+}
+
+#tooplate_main_bottom { 
+	width: 1040px; 
+	height: 20px;
+ margin-left:195px;
+	background: url(../images/content_bottom.png) no-repeat; 
+}
+
+#tooplate_main {
+	
+	width: 1040px;
+	padding: 40px 40px;
+	margin-left:60px;
+	background: url(../images/tooplate_content.png) repeat-y center;
+
+}
+
+
+
+

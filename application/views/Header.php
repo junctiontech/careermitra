@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Bootstrap core CSS -->
     <link href="<?=base_url();?>/../carousel_files/bootstrap.min.css" rel="stylesheet">
 <link href="<?=base_url();?>/../css/custom.css" rel="stylesheet">
+
    <link href="<?=base_url();?>/../css/xenon-forms.css" rel="stylesheet"> 
    <!--<link rel="stylesheet" href="<?=base_url();?>/../css/bootstrap.css">-->
     <link href="<?=base_url();?>/../css/xenon-core.css" rel="stylesheet"> 

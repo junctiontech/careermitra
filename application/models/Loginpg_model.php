@@ -87,13 +87,17 @@ class Loginpg_model extends CI_Model
 		$qry=$this->db->update($table,$data);
 		return true;
 	}
-		/* function for update application status by gmail 
+/*---	function for update application status by gmail ---*/
 	function activate_org($table=false,$filter=false)
 	{
 		$this->db->where($filter);
-		$qry=$this->db->update($table,array('status'=>'active'));
+		$qry=$this->db->update($table,array('status'=>'Active'));
 		return true;
-	}*/
+	}
 	
-   
+   function result_application($user_id=false)
+   {
+	   $qry=$this->db->query("Select * from table users where user_id=$user_id");
+	   return $qry->result;
+   }
 }

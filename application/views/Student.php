@@ -16,7 +16,7 @@
 			
 			<form role="form" id="rootwizard" class="form-wizard validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
 				<input type="hidden" name="role_id" value="student" />
-				
+				<input type="hidden" name="Status" value="Inactive" />
 				<ul class="tabs">
 					<li class="active">
 						<a href="#fwv-1" data-toggle="tab">
