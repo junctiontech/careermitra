@@ -448,7 +448,7 @@ function insert1()
 			if($EmailRegApp)
 			{
 				
-				$updatePassword=$this->Loginpg_model->set_reset_password('users',array('usermailid'=>$UserEmail),array('password'=>$code));
+				$updatePassword=$this->Loginpg_model->set_reset_password('users',array('usermailid'=>$UserEmail),array('password'=>md5($code);
 			}
 			else
 			{
@@ -458,8 +458,8 @@ function insert1()
 		}
 		if($updatePassword)
 		{
-			$subject=" Zero Erp:- Reset Your Password ";
-			$message= " <html><body><h3>Hello </h3><p> Please Use This Temporary Password And Reset Your Password <br> Temporary Password:- <b>$code  </b><br> </p><p><h3>Please Click In This Link And Login   :)</h3></p><p> http://junctiondev.cloudapp.net/careermitra/Loginpg/index</p></body></html>";
+			$subject=" CareerMitra:- Reset Your Password ";
+			$message= " <html><body><h3>Hello </h3><p> Please Use This Temporary Password And Reset Your Password <br> Temporary Password:- <b>$code  </b><br> </p><p><h3>Please Click In This Link And Login   :)</h3></p><p> http://junctiondev.cloudapp.net/careermitra/index.php/Loginpg/index</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
@@ -550,8 +550,8 @@ function insert1()
 		
 		$result=$this->Loginpg_model->result_application($user_id);
 			
-			$subject="Zero ERP:-  Please Activate Your Account ";
-			$message= " <html><body><h3>Hello:$result[First_name] </h3><p> You are Successfully Registered <br><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/Loginpg/activate_org/$user_id</p></body></html>";
+			$subject="CareerMitra:-  Please Activate Your Account ";
+			$message= " <html><body><h3>Hello:$result[First_name] </h3><p> You are Successfully Registered <br><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/careermitra/index.php/Loginpg/activate_org/$user_id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
