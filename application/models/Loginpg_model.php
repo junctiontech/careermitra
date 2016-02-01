@@ -102,4 +102,11 @@ class Loginpg_model extends CI_Model
 	   $qry=$this->db->query("Select * from users where user_id=$user_id");
 	   return $qry->result();
    }
+
+ function admin()
+   {
+	   $qry=$this->db->query("Select * from users where role_id='Admin'");
+	   return $qry->result();
+   }
+
 }

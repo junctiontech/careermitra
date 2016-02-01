@@ -342,7 +342,7 @@
 						
 						
 						<div class="form-group">
-							<button type="submit" style="background-color:#8079C9"class="btn btn-primary">Finish Registration</button>
+							<button type="submit" style="background-color:#8079C9" onclick="return confirm('Would you like to continue')" class="btn btn-primary">Finish Registration</button>
 						</div>
 						
 					</div>

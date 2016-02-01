@@ -222,10 +222,12 @@ function insert()
 			}
 		else		
 			{
-			$this->Loginpg_model->insert('users',$data);
+			$id=$this->Loginpg_model->insert('users',$data);
 			$this->session->set_flashdata('message_type', 'success');
 			$this->session->set_flashdata('message', $this->config->item("index")." Registration Successful!!");
-			redirect('index.php/Loginpg/activation/'.$user_id);
+			
+
+			redirect('index.php/Loginpg/activation/'.$id);
 		
 			$this->parser->parse('Header',$this->data);
 			$this->load->view('Mentor');
@@ -552,8 +554,10 @@ function insert1()
 		
 		$result=$this->Loginpg_model->result_application($user_id);
 			
-			$subject="CareerMitra:-  Please Activate Your Account ";
-			$message= " <html><body><h3>Hello: ($result[0]->First_name) </h3><p> You are Successfully Registered <br><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/careermitra/index.php/Loginpg/activate_org/$user_id</p></body></html>";
+			$subject="CareerMitra:-Please Activate Your Account ";
+			$name=($result[0]->First_name);
+			
+			$message= "<html><body><h3>Hello:$name </h3><p> You are Successfully Registered <br><h3>Please Click In This Link And Activate Your Account  :)</p><p> http://junctiondev.cloudapp.net/careermitra/index.php/Loginpg/activate_org/$user_id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
@@ -642,20 +646,22 @@ function insert1()
 		if($activate_org)
 		{
 			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
-			redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
+			redirect('http://junctiondev.cloudapp.net/careermitra','refresh');
 		}
 	}
 	
 		
-	/*------- Function For Activation account of mentor and Show Message If Success Or Not--------------------- 
+	/*------- Function For Activation account of mentor and Show Message If Success Or Not-------------------------------------------------------------*/
 	
 	function activation($user_id=false)
 	{
 		
 		$result=$this->Loginpg_model->activation($user_id);
+		$name=($result[0]->First_name);
+		$result1=$this->Loginpg_model->admin();
 			
 			$subject="CareerMitra:-  Welcome to CareerMitra ";
-			$message= " <html><body><h3>Hello:$result[First_name] </h3><p> You are Successfully Registered <br><p>Kindly wait till your account is verified from our admin. We will shortly inform you</p></body></html>";
+			$message= " <html><body><h3>Hello:$name</h3><p> You are Successfully Registered <br><p>Kindly wait till your account is verified from our admin. We will shortly inform you</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
@@ -663,7 +669,7 @@ function insert1()
 			
 			//SMTP needs accurate times, and the PHP time zone MUST be set
 			//This should be done in your php.ini, but this is how to do it if you don't have access to that
-			/*date_default_timezone_set('Etc/UTC');
+			date_default_timezone_set('Etc/UTC');
 			
 			require 'PHPMailer/PHPMailerAutoload.php';
 			
@@ -700,14 +706,13 @@ function insert1()
 			//Password to use for SMTP authentication
 			$mail->Password = 'initial1$';
 			
-			//Set who the message is to be sent from
-			$mail->setFrom($result->organization_admin_email,$name);
+		
 			
 			//Set an alternative reply-to address
 			$mail->addReplyTo('dev4junction@gmail.com', $name);
 			
 			//Set who the message is to be sent to
-			$mail->addAddress($json->organization_admin_email);
+			$mail->addAddress($result[0]->usermailid);
 			
 			//Set the subject line
 			$mail->Subject = $subject;
@@ -730,7 +735,7 @@ function insert1()
 			}
 			else
 			{
-				$subjects=" Zero ERP :- Your Application Registered Successfully ";
+				$subjects=" CareerMitra :- New Mentor registered ";
 				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>A mentor is registered on Careermitra .Kindly verify his account and activate his/her account.</p></body></html>";
 				$names='Junction Software Pvt Ltd';
 					
@@ -777,14 +782,13 @@ function insert1()
 				//Password to use for SMTP authentication
 				//	$mail->Password = 'initial1$';
 			
-				//Set who the message is to be sent from
-			/*	$mail->setFrom($result->application_admin_email,$names);
+			
 					
 				//Set an alternative reply-to address
 				$mail->addReplyTo('dev4junction@gmail.com', $names);
 			
 				//Set who the message is to be sent to
-				$mail->addAddress($result->application_admin_email);
+				$mail->addAddress($result1[0]->usermailid);
 			
 				//Set the subject line
 				$mail->Subject = $subjects;
@@ -802,26 +806,17 @@ function insert1()
 				//send the message, check for errors
 				if (!$mail->send()) 
 				{
-					print "We encountered an error sending your mail";
+					print "We encountered an error sending mail to admin. Kindly contact admin";
 						
 				}
 				else
 				{
-					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
-					redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
+					?><script> alert('Your Application Registered Successfully . You will receive a welcome message on your mail. Please check it !!!!');</script><?php
+					redirect('http://junctiondev.cloudapp.net/careermitra','refresh');
 				}
 			}
+}			
 			
-			/* function for activate account with help of mail  */
-	//function activate_org($id=false)
-	//{
-		//$activate_org=$this->data['activate_org']=$this->Loginpg->activate_org('users',array('user_id'=>$id));
-		//if($activate_org)
-		//{
-			//
-			//redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
-	//	}
-	//}*/
 	
 
 }
