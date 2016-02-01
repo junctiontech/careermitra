@@ -28,7 +28,7 @@
 		
 	
 
-</form>
+
     
     <!-- edit form column -->
 
@@ -38,7 +38,7 @@
     <div id="tooplate_main" >
 
 <h1 class="page-header">Edit profile</h1>
-<form role="form" class="form-horizontal" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
+
   <div class="row">
 
 <input type="hidden" name="id" value="<?=isset ($studentshow->user_id) ?$studentshow->user_id:''?>" />

@@ -1,55 +1,59 @@
  <!--------------------------------------------Jumbotron-----------------------------------
 ------------------------------------------------------->
  
-<!--<div class="container">
-  <div class="jumbotron"> 
-	
-     <h1>Profile</h1>
+<div class="container">
+  <div class="jumbo"> 
+	<?php foreach ($student as $studentshow){?>
+     <div class="card-info"> 
+				<h3 style="margin-top:50px;margin-left:70px;font-size:70px;color:white; font-family:French Script MT"><?=isset ($studentshow->First_name) ?$studentshow->First_name:''?>
+					<?=isset ($studentshow->Last_name) ?$studentshow->Last_name:''?></h3>
+					<h3 style="margin-top:-5px; margin-left:70px; font-size:55px;color:white; font-family:French Script MT"><?=isset ($studentshow->role_id) ?$studentshow->role_id:''?></h3>
+				</span>
+
+        </div>
+	<?php }?>
   </div>
   
-</div>-->
+
 
 <!-------------------------------------------------------------------->
 
-<div class="container">
 
-	<div class="breadcrumb-env">
+
+	<!--<div class="breadcrumb-env">
 					
 		<ol class="breadcrumb bc-1" style="margin-left:20px" "margin-top:0px">
 			<li><a href="<?=base_url();?>"><i class="fa-home"></i>Home</a></li>
 			<li class="active"><a href="<?=base_url();?>/../index.php/Loginpg/stpro">profile</a></li>
 		</ol>
 								
-	</div>
+	</div>-->
 	
 	
 	<!-----------------------------body------------profile view-------------------
 -------------------------------------------------------------->
 
-<div class="col-lg-12 col-sm-12">
-    <div class="card hovercard">
+<div class="col-lg-3 col-sm-4">
+   <!-- <div class="card hovercard">
+        
         <div class="card-background">
             <img class="card-bkimg" alt="" src="<?=base_url();?>img/16.jpg">
            
-        </div>
-		<?php foreach ($student as $studentshow){?>
+        </div>-->
 		
+		<?php foreach ($student as $studentshow){?>
         <div class="useravatar">
 		<?php if(!empty($studentshow->Image)){?>
-            <img alt="user image" src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px" alt="user image">
+            <img alt="user image" src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-thumbnail" style="height:150px; width:150px" alt="user image">
 			  <?php } else {?>
-			   <img src="<?=base_url();?>/assets/images/user-2.png" style="height:200px; width:200px">
+			   <img src="<?=base_url();?>/assets/images/user-2.png">
 		<?php } ?>
         </div>
-        <div class="card-info"> <span class="card-title">
-				<h3 style="margin-top:10px"><?=isset ($studentshow->First_name) ?$studentshow->First_name:''?>
-					<?=isset ($studentshow->Last_name) ?$studentshow->Last_name:''?></h3>
-					<?=isset ($studentshow->role_id) ?$studentshow->role_id:''?>
-				</span>
-
-        </div>
+        
+   
+	
 		<?php }?>
-    </div>
+	</div>
    <!-- <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
             <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -67,6 +71,53 @@
             </button>
         </div>
     </div>-->
+
+<div class= "col-sm-5 col-md-5 col-lg-6" style="margin-top:100px; margin-left:0px">
+<div class="panel panel-info" style="margin-top:100px">
+     <div class="panel-heading">
+        <h1 class="panel-title" style="margin-top:10px">Profile</h1>
+     </div>
+		<div class="panel-body">
+              <div class="row">
+			   <div class=" col-md-6 col-lg-6 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+
+			<?php foreach ($student as $studentshow){?>
+					<tr><td>
+						<h4 style="color:#8079c9;margin-top:15px">Personal information</h4>
+						<td></tr>
+					<tr>
+                        <td>Gender</td>
+                        <td><?=isset ($studentshow->Gender) ?$studentshow->Gender:''?></td>
+                     </tr>
+
+                      <tr>
+                        <td>Date of Birth</td>
+                        <td><?=isset ($studentshow->DOB) ?$studentshow->DOB:''?></td>
+                      </tr>
+
+                     <tr>
+                        <td>Contact no</td>
+                        <td><?=isset ($studentshow->Contact_no) ?$studentshow->Contact_no:''?></td>
+                     </tr>
+
+					<tr>
+                        <td>Email Address</td>
+                        <td><?=isset ($studentshow->usermailid) ?$studentshow->usermailid:''?></td>
+                     </tr>
+                   
+					</tr>
+					 
+				<?php }?>
+                    
+                    </tbody>
+                  </table>
+                  
+                 
+                </div>
+          
+            </div>
 
 
  <div class="col-lg-12 col-sm-12">

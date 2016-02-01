@@ -30,18 +30,13 @@ class Loginpg_model extends CI_Model
 	{
 		$this->db->insert($table,$data);
 		
-		//$last_id=$this->db->insert_id();
-		//return $last_id;
+		$last_id=$this->db->insert_id();
+		return $last_id;
 	}
 	
 	
-	function insert1($table=false,$data=false)
-	{
-		$this->db->insert($table,$data);
-		
-		//$last_id=$this->db->insert_id();
-		//return $last_id;
-	}
+	
+
 	
 	function stateget_data()
 	{  
@@ -97,7 +92,14 @@ class Loginpg_model extends CI_Model
 	
    function result_application($user_id=false)
    {
-	   $qry=$this->db->query("Select * from table users where user_id=$user_id");
-	   return $qry->result;
+	   $qry=$this->db->query("Select * from users where user_id=$user_id");
+	   return $qry->result();
+   }
+   
+   
+    function activation($user_id=false)
+   {
+	   $qry=$this->db->query("Select * from users where user_id=$user_id");
+	   return $qry->result();
    }
 }

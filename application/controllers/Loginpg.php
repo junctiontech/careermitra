@@ -225,7 +225,7 @@ function insert()
 			$this->Loginpg_model->insert('users',$data);
 			$this->session->set_flashdata('message_type', 'success');
 			$this->session->set_flashdata('message', $this->config->item("index")." Registration Successful!!");
-			redirect('index.php/Loginpg/result_application/'.$user_id);
+			redirect('index.php/Loginpg/activation/'.$user_id);
 		
 			$this->parser->parse('Header',$this->data);
 			$this->load->view('Mentor');
@@ -317,10 +317,12 @@ function insert1()
 		else		
 			{
 		
-			$this->Loginpg_model->insert('users',$data);
+			$id=$this->Loginpg_model->insert('users',$data);
+			
 			$this->session->set_flashdata('message_type', 'success');
 			$this->session->set_flashdata('message', $this->config->item("index")." Registration Successful!!");
-			redirect('index.php/Loginpg/result_application/'.$user_id);
+			
+			redirect('index.php/Loginpg/result_application/'.$id);
 			
 			$this->parser->parse('Header',$this->data);
 			$this->load->view('Student');
@@ -543,7 +545,7 @@ function insert1()
 	}
 	
 
-	/*------- Function For Application Result Show Message If Success Or Not--------------------- */
+	/*------- Function For Activation account of user and Show Message If Success Or Not--------------------- */
 	
 	function result_application($user_id=false)
 	{
@@ -551,7 +553,7 @@ function insert1()
 		$result=$this->Loginpg_model->result_application($user_id);
 			
 			$subject="CareerMitra:-  Please Activate Your Account ";
-			$message= " <html><body><h3>Hello:$result[First_name] </h3><p> You are Successfully Registered <br><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/careermitra/index.php/Loginpg/activate_org/$user_id</p></body></html>";
+			$message= " <html><body><h3>Hello: ($result[0]->First_name) </h3><p> You are Successfully Registered <br><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/careermitra/index.php/Loginpg/activate_org/$user_id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
@@ -603,7 +605,7 @@ function insert1()
 			$mail->addReplyTo('dev4junction@gmail.com', $name);
 			
 			//Set who the message is to be sent to
-			$mail->addAddress($result->usermailid);
+			$mail->addAddress($result[0]->usermailid);
 			
 			//Set the subject line
 			$mail->Subject = $subject;
@@ -628,7 +630,7 @@ function insert1()
 				}
 				else
 				{
-					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
+					?><script> alert('Your Application Registered Successfully Please Activate Your Application with the Help Of Registered Email !!!!');</script><?php
 					redirect('http://junctiondev.cloudapp.net/careermitra','refresh');
 				}
 			}
@@ -636,7 +638,7 @@ function insert1()
 			/* function for activate account with help of mail  */
 	function activate_org($id=false)
 	{
-		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('users',array('user_id'=>$id));
+		$activate_org=$this->data['activate_org']=$this->Loginpg_model->activate_org('users',array('user_id'=>$id));
 		if($activate_org)
 		{
 			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
@@ -645,7 +647,181 @@ function insert1()
 	}
 	
 		
+	/*------- Function For Activation account of mentor and Show Message If Success Or Not--------------------- 
 	
+	function activation($user_id=false)
+	{
+		
+		$result=$this->Loginpg_model->activation($user_id);
+			
+			$subject="CareerMitra:-  Welcome to CareerMitra ";
+			$message= " <html><body><h3>Hello:$result[First_name] </h3><p> You are Successfully Registered <br><p>Kindly wait till your account is verified from our admin. We will shortly inform you</p></body></html>";
+			$name='Junction Software Pvt Ltd';
+			/*
+			 This example shows settings to use when sending via Google's Gmail servers.
+			 */
+			
+			//SMTP needs accurate times, and the PHP time zone MUST be set
+			//This should be done in your php.ini, but this is how to do it if you don't have access to that
+			/*date_default_timezone_set('Etc/UTC');
+			
+			require 'PHPMailer/PHPMailerAutoload.php';
+			
+			//Create a new PHPMailer instance
+			$mail = new PHPMailer;
+			
+			//Tell PHPMailer to use SMTP
+			$mail->isSMTP();
+			
+			//Enable SMTP debugging
+			// 0 = off (for production use)
+			// 1 = client messages
+			// 2 = client and server messages
+			$mail->SMTPDebug = 0;
+			
+			//Ask for HTML-friendly debug output
+			$mail->Debugoutput = 'html';
+			
+			//Set the hostname of the mail server
+			$mail->Host = 'smtp.gmail.com';
+			
+			//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+			$mail->Port = 587;
+			
+			//Set the encryption system to use - ssl (deprecated) or tls
+			$mail->SMTPSecure = 'tls';
+			
+			//Whether to use SMTP authentication
+			$mail->SMTPAuth = true;
+			
+			//Username to use for SMTP authentication - use full email address for gmail
+			$mail->Username = "dev4junction@gmail.com";
+			
+			//Password to use for SMTP authentication
+			$mail->Password = 'initial1$';
+			
+			//Set who the message is to be sent from
+			$mail->setFrom($result->organization_admin_email,$name);
+			
+			//Set an alternative reply-to address
+			$mail->addReplyTo('dev4junction@gmail.com', $name);
+			
+			//Set who the message is to be sent to
+			$mail->addAddress($json->organization_admin_email);
+			
+			//Set the subject line
+			$mail->Subject = $subject;
+			
+			//Read an HTML message body from an external file, convert referenced images to embedded,
+			//convert HTML into a basic plain-text alternative body
+			$mail->msgHTML($message);
+			
+			//Replace the plain text body with one created manually
+			$mail->AltBody = 'This is a plain-text message body';
+			
+			//Attach an image file
+			//$mail->addAttachment($uploadfile,$filename);
+			
+			//send the message, check for errors
+			if (!$mail->send())
+			{
+				print "We encountered an error sending your mail";
+					
+			}
+			else
+			{
+				$subjects=" Zero ERP :- Your Application Registered Successfully ";
+				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>A mentor is registered on Careermitra .Kindly verify his account and activate his/her account.</p></body></html>";
+				$names='Junction Software Pvt Ltd';
+					
+				/*
+				 This example shows settings to use when sending via Google's Gmail servers.
+				 */
+			
+				//SMTP needs accurate times, and the PHP time zone MUST be set
+				//This should be done in your php.ini, but this is how to do it if you don't have access to that
+				//	date_default_timezone_set('Etc/UTC');
+			
+				//require 'PHPMailer/PHPMailerAutoload.php';
+			
+				//Create a new PHPMailer instance
+				//$mail = new PHPMailer;
+			
+				//Tell PHPMailer to use SMTP
+				//$mail->isSMTP();
+			
+				//Enable SMTP debugging
+				// 0 = off (for production use)
+				// 1 = client messages
+				// 2 = client and server messages
+				//$mail->SMTPDebug = 0;
+			
+				//Ask for HTML-friendly debug output
+				//	$mail->Debugoutput = 'html';
+			
+				//Set the hostname of the mail server
+				//$mail->Host = 'smtp.gmail.com';
+			
+				//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+				//	$mail->Port = 587;
+			
+				//Set the encryption system to use - ssl (deprecated) or tls
+				//$mail->SMTPSecure = 'tls';
+			
+				//Whether to use SMTP authentication
+				//$mail->SMTPAuth = true;
+			
+				//Username to use for SMTP authentication - use full email address for gmail
+				//$mail->Username = "dev4junction@gmail.com";
+			
+				//Password to use for SMTP authentication
+				//	$mail->Password = 'initial1$';
+			
+				//Set who the message is to be sent from
+			/*	$mail->setFrom($result->application_admin_email,$names);
+					
+				//Set an alternative reply-to address
+				$mail->addReplyTo('dev4junction@gmail.com', $names);
+			
+				//Set who the message is to be sent to
+				$mail->addAddress($result->application_admin_email);
+			
+				//Set the subject line
+				$mail->Subject = $subjects;
+			
+				//Read an HTML message body from an external file, convert referenced images to embedded,
+				//convert HTML into a basic plain-text alternative body
+				$mail->msgHTML($messages);
+			
+				//Replace the plain text body with one created manually
+				$mail->AltBody = 'This is a plain-text message body';
+			
+				//Attach an image file
+				//$mail->addAttachment($uploadfile,$filename);
+			
+				//send the message, check for errors
+				if (!$mail->send()) 
+				{
+					print "We encountered an error sending your mail";
+						
+				}
+				else
+				{
+					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
+					redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
+				}
+			}
+			
+			/* function for activate account with help of mail  */
+	//function activate_org($id=false)
+	//{
+		//$activate_org=$this->data['activate_org']=$this->Loginpg->activate_org('users',array('user_id'=>$id));
+		//if($activate_org)
+		//{
+			//
+			//redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
+	//	}
+	//}*/
 	
 
 }
