@@ -35,9 +35,6 @@ class Loginpg_model extends CI_Model
 	}
 	
 	
-	
-
-	
 	function stateget_data()
 	{  
 		$qry=$this->db->query("select State_id,State_name from state_master");
@@ -67,7 +64,7 @@ class Loginpg_model extends CI_Model
 		
 	}
 	
-	/* function for Get Data Organization And Application Admin */
+	/* function for reset of password */
 	function get_reset_password($table=false,$filter=false)
 	{
 		$this->db->select('*');
@@ -75,38 +72,84 @@ class Loginpg_model extends CI_Model
 		return $qry->result();
 	}
 	
-	/* function for update Password Organization And Application Admin */
+	/* function for update Password Organization  */
 	function set_reset_password($table=false,$filter=false,$data=false)
 	{
 		$this->db->where($filter);
 		$qry=$this->db->update($table,$data);
 		return true;
 	}
-/*---	function for update application status by gmail ---*/
+/*---	function for update user profie by gmail ---*/
 	function activate_org($table=false,$filter=false)
 	{
 		$this->db->where($filter);
-		$qry=$this->db->update($table,array('status'=>'Active'));
+		$qry=$this->db->update($table,array('Status'=>'Active'));
 		return true;
 	}
-	
+	/*---------------------------------------------------Fetch data for activation of admin ---------------------*/
    function result_application($user_id=false)
    {
 	   $qry=$this->db->query("Select * from users where user_id=$user_id");
 	   return $qry->result();
    }
    
-   
+	/*---------------------------------------------------Fetch data for activation of mentor---------------------*/  
     function activation($user_id=false)
    {
 	   $qry=$this->db->query("Select * from users where user_id=$user_id");
 	   return $qry->result();
    }
 
+   
+   /*---------------------------------------------------Fetch data for admin ---------------------*/
  function admin()
    {
 	   $qry=$this->db->query("Select * from users where role_id='Admin'");
 	   return $qry->result();
    }
 
+   
+  /*--------------------------------------------------Fetch data for mentor---------------------*/
+function mentoractive()
+{
+   $qry=$this->db->query("Select user_id,First_name,Last_name,Status from users where role_id='Mentor'");
+	   return $qry->result();
+
+
+}
+
+/*--------------------------------------------------------Update status of mentor---------------------*/
+function mentor_activate($table=false,$filter=false)
+{
+	
+	$this->db->where($filter);
+		$qry=$this->db->update($table,array('Status'=>'Active'));
+		return true;
+}
+
+
+
+function mentor_deactivate($table=false,$filter=false)
+{
+	
+	$this->db->where($filter);
+		$qry=$this->db->update($table,array('Status'=>'Inactive'));
+		return true;
+}
+
+/*--------------------------------------------------------Update status of mentor---------------------*/
+
+function mentor_profile($user_id=false)
+{
+	 $qry=$this->db->query("Select * from users where user_id=$user_id and role_id='Mentor'");
+	    return $qry->result();
+	  
+	  
+}
+/*--------------------------------------------------------Delete mentors profile---------------------*/
+function delete1($table1=false,$filter=false)
+	{
+		$this->db->delete($table1,$filter);
+		
+	}
 }

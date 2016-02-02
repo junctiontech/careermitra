@@ -6,17 +6,14 @@ $a=$per->role_id;
 		
 	<div class="row">
 		<div class="col-sm-12">
-			<div class="panel panel-default">
-				<div class="body">
+			
 		
 					<?php  if($this->session->flashdata('message_type')=='success') { ?>
 					<div class="alert alert-success alert-dismissible fade in" role="alert">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span> </button>
 					<strong><?=$this->session->flashdata('message')?></strong>  </div>
 					<?php }?>
-				</div>
-			</div>	
-			
+				
 			<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Role permission </h3>

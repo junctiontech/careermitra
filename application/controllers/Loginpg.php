@@ -815,8 +815,63 @@ function insert1()
 					redirect('http://junctiondev.cloudapp.net/careermitra','refresh');
 				}
 			}
-}			
-			
-	
+}	
 
+/*-----------------------------------view function for activation of mentor-----------------------------------------------*/		
+		function mentoractive()
+{
+		$this->data['mentor']= $this->Loginpg_model->mentoractive();
+		$this->parser->parse('Adminheader',$this->data);
+		$this->load->view('Mngmentor');
+		$this->parser->parse('Adminfooter',$this->data);
+	
+	
+}
+/*----------------------------------- function for activation button of mentor-----------------------------------------------*/	
+		function mentor_activate($user_id=false)
+		{
+			$this->Loginpg_model->mentor_activate('users',array('user_id'=>$user_id));
+			
+			$this->session->set_flashdata('message_type', 'success');
+			$this->session->set_flashdata('message', $this->config->item("index")." Mentor status activated!!");
+			$this->parser->parse('Adminheader',$this->data);
+			$this->load->view('Mngmentor');
+			$this->parser->parse('Adminfooter',$this->data);
+			redirect ('index.php/Loginpg/mentoractive');
+		}
+		function mentor_deactivate($user_id=false)
+		{
+			$this->Loginpg_model->mentor_deactivate('users',array('user_id'=>$user_id));
+			$this->session->set_flashdata('message_type', 'success');
+			$this->session->set_flashdata('message', $this->config->item("index")." Mentor status deactivated!!");
+			$this->parser->parse('Adminheader',$this->data);
+			$this->load->view('Mngmentor');
+			$this->parser->parse('Adminfooter',$this->data);
+			redirect ('index.php/Loginpg/mentoractive');
+			
+			
+		}
+		
+/*----------------------------------- function for viewing mentors profile-----------------------------------------------*/	
+	function mentor_profile($user_id=false)
+		{
+			$this->data['profile']=$this->Loginpg_model->mentor_profile($user_id);
+			$this->parser->parse('Adminheader',$this->data);
+			$this->load->view('Mngmentor');
+			$this->parser->parse('Adminfooter',$this->data);
+		}
+		
+
+/*----------------------------------- function for deleting mentors profile------------------------------------------*/
+	function delete($user_id=false)
+	{
+		$this->Loginpg_model->delete1('users',array('user_id'=>$user_id));
+		$this->session->set_flashdata('message_type', 'success');
+		$this->session->set_flashdata('message', $this->config->item("index")." Mentor profile Deleted!!");
+		
+		$this->parser->parse('Adminheader',$this->data);
+		$this->load->view('Mngmentor');
+		$this->parser->parse('Adminfooter',$this->data);
+		redirect ('index.php/Loginpg/mentoractive');
+	}
 }

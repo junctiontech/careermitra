@@ -261,6 +261,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</a>
 						
 					</li>
+					<li>
+						<a href="<?=base_url();?>index.php/Loginpg/mentoractive">
+							<i class="fa-cog"></i>
+							<span class="title">Manage Mentor</span>
+						</a>
+					
+						
+					</li>
 					<!--<li>
 						<a href="<?=base_url();?>index.php/Managearticle">
 							<i class="fa-book"></i>

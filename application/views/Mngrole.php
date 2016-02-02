@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			
-		
+
 		 <?php  if($this->session->flashdata('message_type')=='success') { ?>
 		  <div class="alert alert-success alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span> </button>
@@ -114,7 +114,7 @@
 				</div>
 			</div>
 					
-				</div>
+			</div>	
 		</div>
 	</div>
 </div>
