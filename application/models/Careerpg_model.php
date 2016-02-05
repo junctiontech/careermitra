@@ -34,7 +34,7 @@ class Careerpg_model extends CI_Model
 	
 	function detail($id=false)
 	{
-		$qry=$this->db->query("Select Career_name,Introduction,Job_prospects,Eligibility,Min_salary,Max_salary 
+		$qry=$this->db->query("Select Career_name,Image,Introduction,Job_prospects,Eligibility,Min_salary,Max_salary 
 						from career_master,career_detail where career_master.Career_id=career_detail.Career_id and career_master.Career_id=$id");
 		return $qry->Result();
 	}
@@ -55,7 +55,7 @@ class Careerpg_model extends CI_Model
 	
 	function get_data()
    {	
-		$qry=$this->db->query("select career_master.career_id, Alphabet_id,Eligibility,Min_salary,Max_salary,Career_name,
+		$qry=$this->db->query("select career_master.career_id, Alphabet_id,Image,Eligibility,Min_salary,Max_salary,Career_name,
 								Introduction,Job_prospects,Language_id from career_master,
 								career_detail where career_master.Career_id=career_detail.Career_id");
 		return $qry->Result();			
@@ -70,7 +70,7 @@ class Careerpg_model extends CI_Model
 	
 	function get_forupdate($id=false)
 	{
-		$qry=$this->db->query("select career_master.career_id, Alphabet_id,Eligibility,Min_salary,Max_salary,Career_name,
+		$qry=$this->db->query("select career_master.career_id, Alphabet_id,Image,Eligibility,Min_salary,Max_salary,Career_name,
 								Introduction,Job_prospects,Language_id from career_master,
 								career_detail where career_master.Career_id=career_detail.Career_id and career_master.career_id=$id");
 		return $qry->Result();	

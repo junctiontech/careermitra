@@ -41,6 +41,7 @@
 	<script src="<?=base_url();?>/assets/js/xenon-toggles.js"></script>
 	<script src="<?=base_url();?>/assets/js/datatables/js/jquery.dataTables.min.js"></script>
 	<script src="<?=base_url();?>/assets/js/jquery-validate/jquery.validate.min.js"></script>
+	<script src="<?=base_url();?>/assets/js/jquery-validate/jquery.custom.js"></script>
 	<script src="<?=base_url();?>/assets/js/rwd-table/js/rwd-table.min.js"></script>
 	<!-- JavaScripts initializations and stuff -->
 	<script src="<?=base_url();?>/assets/js/xenon-custom.js"></script>

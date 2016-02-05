@@ -68,48 +68,56 @@ class Loginpg extends CI_Controller {
 											 'First_name'=>$row->First_name,
 											 'Status'=>$row->Status
 											 );
-					if($user_data[Status]=="Inactive" )
-					{
-						
-					$this->session->set_flashdata('message_type', 'error');
-					$this->session->set_flashdata('message', $this->config->item("login").' Your status is Inactive .
-					Please activate by clicking on link  provided on your Registered Email!!');
-					redirect('index.php/Loginpg/index');	
-
-					}
-					else
-					{ 
-	
-										
+											 
+					if($user_data[role_id]=="student" and $user_data[Status]=="Active")
 					
-						
+					{
 						$this->session->set_userdata('user_data',$user_data);
 						$user_session_data= $this->session->userdata('user_data');
 						
 						
 					$this->session->set_flashdata('message_type', 'success');
 					$this->session->set_flashdata('message', $this->config->item("login").' Login Successfully!!');
-				}
-			
-				}		
-						
-					if($user_data[role_id]=="student" )
-						
-					
-					{
 					redirect("index.php/Loginpg/stpro/".$user_data[user_id]);
+					}
+					
+					elseif( $user_data[role_id]=="student" && $user_data[Status]=="Inactive")
+				
+					{
+					$this->session->set_flashdata('message_type', 'error');
+					$this->session->set_flashdata('message', $this->config->item("login").' Your status is Inactive .
+					Please activate by clicking on link  provided on your Registered Email!!');
+					redirect('index.php/Loginpg/index');	
 					}
 					
 					elseif( $user_data[role_id]=="mentor" && $user_data[Status]=="Active")
 				
 					{
+						$this->session->set_userdata('user_data',$user_data);
+						$user_session_data= $this->session->userdata('user_data');
+						
+						
+					$this->session->set_flashdata('message_type', 'success');
+					$this->session->set_flashdata('message', $this->config->item("login").' Login Successfully!!');
 					redirect("index.php/Loginpg/mtpro/".$user_data[user_id]);	
 					}
 					
-					
+					elseif( $user_data[role_id]=="mentor" && $user_data[Status]=="Inactive")
+				
+					{
+					$this->session->set_flashdata('message_type', 'error');
+					$this->session->set_flashdata('message', $this->config->item("login").' Your status is Inactive .
+					Please activate by clicking on link  provided on your Registered Email!!');
+					redirect('index.php/Loginpg/index');
+					}
 					
 					elseif($user_data[role_id] !="student" || $user_data[role_id] !="mentor")
 					{
+						$this->session->set_userdata('user_data',$user_data);
+						$user_session_data= $this->session->userdata('user_data');
+						
+					$this->session->set_flashdata('message_type', 'success');
+					$this->session->set_flashdata('message', $this->config->item("login").' Login Successfully!!');
 					redirect('index.php/Careermitra/Adminindex');
 					}
 					
@@ -120,6 +128,14 @@ class Loginpg extends CI_Controller {
 				$this->session->set_flashdata('message', $this->config->item("login").' Invalid User Name Or Password!!');
 				  redirect('index.php/Loginpg/index');
 					}
+					
+						
+						
+				
+			
+				}		
+						
+					
 																	
 	}
 			
@@ -177,8 +193,9 @@ function insert()
 						$config =  array(
 						'upload_path'	  => './uploaded_images/',
 						'file_name'       => $image,
-						'allowed_types'   => "gif|jpg|png|jpeg|JPG|JPEG|PNG|JPG",
-						'overwrite'       => true);
+						'allowed_types'   => "gif|jpg|png|jpeg|jpe|JPG|JPEG|PNG|JPG",
+						'overwrite'       => true,
+						'max_size'        => '25kb');
 						
 							$this->upload->initialize($config);
 							
@@ -262,8 +279,9 @@ function insert1()
 						$config =  array(
 						'upload_path'	  => './uploaded_images/',
 						'file_name'       => $image,
-						'allowed_types'   => "gif|jpg|png|jpeg|JPG|JPEG|PNG|JPG",
-						'overwrite'       => true);
+						'allowed_types'   => "gif|jpg|png|jpeg|jpe|JPG|JPEG|PNG|JPG",
+						'overwrite'       => true,
+						'max_size'        => '25kb');
 						
 							$this->upload->initialize($config);
 							
@@ -873,5 +891,14 @@ function insert1()
 		$this->load->view('Mngmentor');
 		$this->parser->parse('Adminfooter',$this->data);
 		redirect ('index.php/Loginpg/mentoractive');
+	}
+	
+	
+	
+	function password()
+	{
+		$this->parser->parse('Adminheader',$this->data);
+		$this->load->view('Password1');
+		$this->parser->parse('Adminfooter',$this->data);
 	}
 }

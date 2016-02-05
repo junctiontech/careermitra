@@ -30,6 +30,8 @@ class Careermitra extends CI_Controller
 			$this->data['student']='';
 		}
 	}
+	
+/*----------------------------view for careermitra home pg-------------*/
 	function index()
 		{
 		
@@ -41,13 +43,15 @@ class Careermitra extends CI_Controller
 		}
 		
 		
-		
+/*----------------------------view for Admin panel home pg-------------*/	
 	function Adminindex()
 		
 		{	$this->parser->parse('Adminheader',$this->data);
 			$this->load->view('Admin');
 			$this->parser->parse('Adminfooter',$this->data);
 		}
+		
+/*----------------------------view for Registration pg-------------*/
 		
 	function register()
 		{
@@ -57,6 +61,8 @@ class Careermitra extends CI_Controller
 		$this->parser->parse('Footer',$this->data);
 		
 		}
+		
+/*----------------------------view for about us pg-------------*/		
 	
 	function index1()
 	
@@ -67,7 +73,8 @@ class Careermitra extends CI_Controller
 			$this->load->view('Aboutus');
 			$this->parser->parse('Footer',$this->data);
 		}
-		
+
+/*----------------------------view for contact us pg-------------*/		
 	function index2()
 		
 		{	$this->data['contact']=$this->Careermitra_model->get_data();
@@ -76,7 +83,8 @@ class Careermitra extends CI_Controller
 			$this->load->view('Contactus');
 			$this->parser->parse('Footer',$this->data);
 		}
-		
+
+/*----------------------------view for Manageabt us pg-------------*/		
 		
 	function index3($id=false)
 		
@@ -98,6 +106,8 @@ class Careermitra extends CI_Controller
 			$this->parser->parse('Adminfooter',$this->data);
 		
 	}
+	
+/*----------------------------insert function for about us-------------*/
 	function insert()
 		{	
 			Authority::is_logged_in();
@@ -129,7 +139,7 @@ class Careermitra extends CI_Controller
 		redirect ('index.php/Careermitra/index3');
 		}
 		
-	
+/*----------------------------delete function for about us -------------*/	
 	function delete($id=false)
 	{	Authority::is_logged_in();
 		if(Authority::checkAuthority('Manageaboutus.delete')==true)
@@ -148,7 +158,7 @@ class Careermitra extends CI_Controller
 		redirect ('index.php/Careermitra/index3');
 	}
 	
-	
+/*----------------------------view for manage contact us pg-------------*/	
 	
 	function index4($id=false)
 		
@@ -171,6 +181,8 @@ class Careermitra extends CI_Controller
 			
 		
 	}
+	
+/*----------------------------insert function for managecontact us-------------*/
 	function insert1()
 		{	
 		Authority::is_logged_in();
@@ -205,7 +217,7 @@ class Careermitra extends CI_Controller
 		redirect ('index.php/Careermitra/index4');
 		}
 		
-	
+	/*----------------------------delete function for managecontact us-------------*/
 	function delete1($id=false)
 	{	
 		Authority::is_logged_in();
@@ -227,7 +239,7 @@ class Careermitra extends CI_Controller
 	
 	
 	
-	
+	/*----------------------------view for manageintro-------------*/
 	function index5($id=false)
 		
 	{	  Authority::is_logged_in();
@@ -248,6 +260,8 @@ class Careermitra extends CI_Controller
 			$this->parser->parse('Adminfooter',$this->data);
 		
 	}
+	
+/*----------------------------insert function for manageintro-------------*/
 	function insert2()
 		{	  Authority::is_logged_in();
 		if(Authority::checkAuthority('Manageintro.insert')==true)
@@ -296,6 +310,7 @@ class Careermitra extends CI_Controller
 		redirect ('index.php/Careermitra/index5');
 		}
 		
+/*----------------------------delete function for manageintro-------------*/
 	function delete2($id=false)
 	{	  Authority::is_logged_in();
 		if(Authority::checkAuthority('Manageintro.delete')==true)
@@ -311,7 +326,7 @@ class Careermitra extends CI_Controller
 		redirect ('index.php/Careermitra/index5');
 	}
 	
-	
+/*----------------------------view for managenotify pg-------------*/	
 	function index6($id=false)
 		
 		{	  Authority::is_logged_in();
@@ -333,6 +348,7 @@ class Careermitra extends CI_Controller
 			$this->parser->parse('Adminfooter',$this->data);
 			}
 		}
+/*----------------------------insert function for managenotify pg-------------*/
 		
 	function insert3()
 	{ 
@@ -378,7 +394,8 @@ class Careermitra extends CI_Controller
 			$this->parser->parse('Adminfooter',$this->data);
 			redirect('index.php/Careermitra/index6');
 	}
-	
+
+/*----------------------------delete function for managenotify-------------*/	
 	function delete3($id=false)
 	{  
 	Authority::is_logged_in();

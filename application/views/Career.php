@@ -82,10 +82,6 @@
 				</div>
 				<div class="panel-body">
 					
-					
-					
-					
-
 						<?php 
 					
 							foreach($intro as $introshow) {?>
@@ -504,11 +500,16 @@
 			<div class="panel panel-color panel-purple">
 				<div class="panel-heading">
 					<?php foreach ($detail1 as $detail1show){?>
-						
+						<div class="col-sm-6 col-md-6">
 						<H3><?=isset ($detail1show->Career_name) ?$detail1show->Career_name:''?></H3>
+						</div>
+						<div class="col-sm-6 col-md-6">
+						<img src="<?=base_url();?>/uploaded_images/<?= isset ($detail1show->Image) ?$detail1show->Image:''?>"
+												height="90px" width="90px" style="float:right">
+												</div>
 						<?php }?>
-				</div>	
-				
+				</div>
+		
 				<div class="panel-body">
 					
 						<?php foreach ($detail1 as $detail1show){?>
@@ -519,7 +520,7 @@
 						<p style="color:grey"><?=isset ($detail1show->Job_prospects) ?$detail1show->Job_prospects:''?></p>
 				
 						<h4 style="color:#8079C9;margin-top:15px">Eligibility</h4>
-						<p style="color:grey"><?=isset ($detail1show->Eligibility) ?$detail1show->Eligibility:''?></p>
+						<p style="color:grey"><?=isset ($detail1show->Eligibility) ?$detail1show->Eligibility:''?></p>						
 				
 						<h4 style="color:#8079C9;margin-top:15px">Minimum salary</h4>
 						<p style="color:grey"><?=isset ($detail1show->Min_salary) ?$detail1show->Min_salary:''?></p>

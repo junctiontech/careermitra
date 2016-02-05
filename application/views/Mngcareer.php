@@ -36,7 +36,7 @@
 						
 							</script>
 							
-							<form role="form" class="validate" method="post" action="<?=base_url();?>index.php/Careerpg/insert">
+							<form role="form" class="validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Careerpg/insert">
 								
 					<div class="form-group">
 					<input type="hidden" name="id" value="<?=isset ($updatedata[0]->career_id) ?$updatedata[0]->career_id:''?>"/>
@@ -66,12 +66,24 @@
 								
 								</div>
 								
+						<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Logo</label>
+									
+								<div class="col-sm-10" style="margin-top:10px">
+									<input type="file" class="form-control" id="i_file"  name="file"><?=isset($updatedata[0]->Image)?$updatedata[0]->Image:''?>
+									<h5>Image size must be under 10kb</h5>
+								</div>
+								
 								
 									
 							<label class="col-sm-2 control-label" style="margin-top:10px"for="field-1">Eligibility</label>
 									
 								<div class="col-sm-10" style="margin-top:10px">
-									<input type="text" class="form-control" data-validate="required" name="Eligibility" id="field-1" placeholder="Degree" value="<?=isset ($updatedata[0]->Eligibility) ?$updatedata[0]->Eligibility:''?>">
+									<input type="file" class="form-control"  name="file1"  placeholder="Degree" value="<?=isset ($updatedata[0]->Eligibility) ?$updatedata[0]->Eligibility:''?>">
+									
+								</div>
+								
+								<div class="col-sm-10" style="margin-top:10px;margin-left:158px">
+									<input type="text" class="form-control" data-validate="required" name="Eligibility1" id="field-1" placeholder="Text" value="<?=isset ($updatedata[0]->Eligibility) ?$updatedata[0]->Eligibility:''?>">
 								</div>
 								
 		
@@ -112,7 +124,7 @@
 								</div>
 								
 								<div class="col-sm-12" >
-								<input type="submit" class="btn btn-default" value="submit" style="background-color:#8079C9; float:right ;margin-top:10px">
+								<input type="submit" class="btn btn-default" id="i_submit" value="submit" style="background-color:#8079C9; float:right ;margin-top:10px">
 								</div>
 		
 					</div>
@@ -154,6 +166,7 @@
 						<thead style="white-space:nowrap;">
 							<tr>
 								<th>Alphabet</th>
+								<th>Image</th>
 								<th>Career name</th>
 								<th>Introduction</th>
 								<th>Eligibility</th>
@@ -169,6 +182,7 @@
 						<tfoot>
 							<tr>
 								<th>Alphabet</th>
+								<th>Image</th>
 								<th>Career name</th>
 								<th>Introduction</th>
 								<th>Eligibility</th>
@@ -185,6 +199,8 @@
 						<?php foreach($Career as $careershow){?>
 							<tr>
 						<td><?=isset ($careershow->Alphabet_id) ?$careershow->Alphabet_id:''?></td>
+						<td><img src="<?=base_url();?>/uploaded_images/<?= isset ($careershow->Image) ?$careershow->Image:''?>"
+												height="70px" width="70px"></td>
 						<td><?=isset ($careershow->Career_name) ?$careershow->Career_name:''?></td>
 						<td><?=isset ($careershow->Introduction) ?$careershow->Introduction:''?></td>
 						<td><?=isset ($careershow->Eligibility) ?$careershow->Eligibility:''?></td>

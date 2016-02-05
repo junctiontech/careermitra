@@ -38,16 +38,25 @@
 							
 								</ol>
 								
-					</div>
-					
+			</div>
+			
+					<?php if(!empty($mentor)){?>	
 				<div class="panel-body">
 				
-				<?php if(!empty($mentor)){?>			
-				 <div class="row">
-               
-                
-                <div class=" col-md-12 col-lg-12 "> 
-                  <table class="table table-user-information">
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						$("#example-1").dataTable({
+							aLengthMenu: [
+								[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
+							]
+						});
+					});
+					</script>
+						
+				
+                  <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+					
                     
 					<thead>
 					<tr>
@@ -93,10 +102,9 @@
                     </tbody>
                   </table>
                   
-                 
-                </div>
-				</div>
-					<?php }?>
+                 <?php }?>
+              
+					
 					
 					
 						
@@ -116,9 +124,17 @@
 						<h4 style="color:#8079c9;margin-top:15px">Personal information</h4>
 						<td></tr>
 						
+						<tr>
+				<td><img src="<?=base_url();?>/uploaded_images/<?= isset ($profileshow->Image) ?$profileshow->Image:''?>"
+												height="90px" width="90px"></td>
+					</tr>
+						
 					<tr>
                     <td>User_id</td><td><?=isset ($profileshow->user_id) ?$profileshow->user_id:''?></td>
 					</tr>
+					
+					
+					
 					<tr>
                         <td>Gender</td>
                         <td><?=isset ($profileshow->Gender) ?$profileshow->Gender:''?></td>
@@ -159,7 +175,7 @@
 						<?php }elseif($profileshow->Status=='Active'){?>
 						
 						<div class="btn-group">
-						<a class="btn btn-small btn-primary show-tooltip" title="Inactive" href="<?php echo base_url();?>index.php/Loginpg/mentor_deactivate/<?=isset ($profileshow->user_id) ?$profileshow->user_id:''?>"><i class="fa fa-foursquare"></i> Inactive</a>
+						<a class="btn btn-small btn-success show-tooltip" title="Inactive" href="<?php echo base_url();?>index.php/Loginpg/mentor_deactivate/<?=isset ($profileshow->user_id) ?$profileshow->user_id:''?>"><i class="fa fa-foursquare"></i> Inactive</a>
 					</div> 
 					<?php }?>
 					
@@ -184,5 +200,6 @@
 			</div>	
 			</div>
 			</div>
-			</div>
+			
+			
 		

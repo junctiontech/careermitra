@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<li><a href="<?=base_url();?>index.php/Careermitra/index2">Contact us</a></li>
 						</ul>
 					</li>
-        
+					<li><a href="<?=base_url();?>index.php/FAQpg">FAQ</a></li>
 				</ul>
     
   

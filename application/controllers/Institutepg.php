@@ -84,7 +84,7 @@ class Institutepg extends CI_Controller
 			{
 				redirect('index.php/Loginpg');
 			}
-			
+			$image ="";
 		
 		if($_FILES['file']['name']!='')
 				{
@@ -97,7 +97,8 @@ class Institutepg extends CI_Controller
 						$config =  array(
 						'upload_path'	  => './uploaded_images/',
 						'file_name'       => $image,
-						'allowed_types'   => "gif|jpg|png|jpeg|JPG|JPEG|PNG|JPG",
+						'allowed_types'   => "gif|jpg|png|jpeg|JPG|jpe|JPEG|PNG|JPG",
+						'max_size'        => '50',
 						'overwrite'       => true);
 						
 							$this->upload->initialize($config);
@@ -120,9 +121,8 @@ class Institutepg extends CI_Controller
 			'Image'=>$image,
 			'Official_link'=>$this->input->post('Official_link'),
 			'Group1'=>$this->input->post('Group1'),
-			'Contact_no'=>$this->input->post('Contact_no'),
-			'Longitude'=>$this->input->post('Longitude'),
-			'Latitude'=>$this->input->post('Latitude'));
+			'Contact_no'=>$this->input->post('Contact_no'));
+			
 			
 			if(!empty($this->input->post('id')))
 		
@@ -161,6 +161,7 @@ class Institutepg extends CI_Controller
 			$this->session->set_flashdata('message_type', 'success');
 			$this->session->set_flashdata('message', $this->config->item("index")." Data Added Successfully!!");
 			}
+			
 		$this->parser->parse('Adminheader',$this->data);
 		$this->load->view('Mnginstitute');
 		$this->parser->parse('Adminfooter',$this->data);

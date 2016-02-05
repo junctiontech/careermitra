@@ -9,21 +9,26 @@
 	
 <form role="form" class="form-horizontal" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
 
-   
- 
+  
+  <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <input class="btn btn-primary" value="Change password" type="button" style="margin-top:20px; margin-left:950px;background-color:#8079C9;">
+            <span></span>
+            <input class="btn btn-primary" value="Change role" type="button" style="margin-top:20px; margin-left:950px; background-color:#8079C9;">
+     </div>   
       <div class="text-center">
 
-		
-	  
-		
 	   <?php if(!empty($studentshow->Image)){?>
-        <img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px; margin-top:10px;"  alt="user image">
+        <img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px; margin-top:-100px;"  alt="user image">
          <?php } else {?>
 		 <img src="<?=base_url();?>/assets/images/user-2.png" style="height:200px; width:200px">
 		<?php } ?>
 		
 		<h5 style="color:white">Upload a different photo...</h5>
-        <input type="file" class="text-center center-block well well-sm" name="file">
+        <input type="file" id="i_file" class="text-center center-block well well-sm" name="file">
+		<h5 style="color:white">Image size must be under 25kb</h5>
+		
+		
       </div>
 		
 	
@@ -273,9 +278,9 @@
 <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
-            <input class="btn btn-primary" value="Save Changes" type="submit" style="background-color:#8079C9">
+            <input class="btn btn-primary" id="i_submit2" value="Save Changes" type="submit" style="background-color:#8079C9">
             <span></span>
-            <input class="btn btn-default" value="Cancel" type="reset">
+           <!-- <input class="btn btn-default" value="Cancel" type="reset">-->
           </div>
         </div>
         

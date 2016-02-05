@@ -66,8 +66,8 @@
 						
 							<div class="col-md-6">
 						<label class="control-label" for="image" >Image</label>
-						<input type="file" class="form-control" id="field-1"  name="file" ><?=isset($updatedata[0]->Image)?$updatedata[0]->Image:''?>
-							
+						<input type="file" class="form-control" id="i_file"  name="file" ><?=isset($updatedata[0]->Image)?$updatedata[0]->Image:''?>
+							<h5>Image size must be under 25kb</h5>
 							</div>
 					
 						
@@ -200,7 +200,7 @@
 						</div>-->
 						
 						<div class="form-group">
-							<button type="submit" style="background-color:#8079C9"class="btn btn-primary">Finish Registration</button>
+							<button type="submit" id="i_submit2" style="background-color:#8079C9"class="btn btn-primary">Finish Registration</button>
 						</div>
 						
 					</div>

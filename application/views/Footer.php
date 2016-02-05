@@ -52,11 +52,12 @@
 	
 	
 	<!-- Bottom Scripts -->
-	
+	<script src="<?=base_url();?>/assets/js/jquery-validate/jquery.custom.js"></script>
 	<script src="<?=base_url();?>/../assets/js/TweenMax.min.js"></script>
 	<script src="<?=base_url();?>/../assets/js/resizeable.js"></script>
 	<script src="<?=base_url();?>/../assets/js/joinable.js"></script>
 	<script src="<?=base_url();?>/../assets/js/xenon-api.js"></script>
+	
 	<script src="<?=base_url();?>/../assets/js/xenon-toggles.js"></script>
 	<script src="<?=base_url();?>/../assets/js/daterangepicker/daterangepicker.js"></script>
 	<script src="<?=base_url();?>/../assets/js/datepicker/bootstrap-datepicker.js"></script>

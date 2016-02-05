@@ -14,7 +14,7 @@ class Careerpg extends CI_Controller
 		$this->load->library('parser');
 		$this->load->model('Authority_model');
 		$this->load->library('Authority');
-		
+		$this->load->library('upload');
 		$this->data['base_url']=base_url();
 		
 		$this->load->library('session');
@@ -31,6 +31,7 @@ class Careerpg extends CI_Controller
 		}
 		
 	}
+	/*-----------------------------Careerpg function-------------------------------*/
 	function Index($id=false)
 		
 		{
@@ -57,7 +58,7 @@ class Careerpg extends CI_Controller
 		}
 		
 		
-		
+	/*-------------------------------------------------Manage careerpg function-------------------------------------*/	
 	function Mngcaindex($id=false)
 	
 	{	Authority::is_logged_in();
@@ -79,7 +80,7 @@ class Careerpg extends CI_Controller
 			}
 		
 	}
-	
+	/*----------------------------------------function for Inserting data through admin panel -------------------------*/
 	function insert()
 	{ 
 			Authority::is_logged_in();
@@ -87,8 +88,78 @@ class Careerpg extends CI_Controller
 			{
 				redirect('index.php/Loginpg');
 			}
+			
+			$image ="";
+			$image1 ="";
+			
+			if($_FILES['file']['name']!='')
+				{
+					$data['image_z1']= $_FILES['file']['name'];
+					$image=sha1($_FILES['file']['name']).time().rand(0, 9);
+				
+					if(!empty($_FILES['file']['name']))
+					{
+				
+						$config =  array(
+						'upload_path'	  => './uploaded_images/',
+						'file_name'       => $image,
+						'allowed_types'   => "gif|jpg|png|jpeg|JPG|jpe|JPEG|PNG|JPG",
+						'overwrite'       => true,
+						'max_size'        => '10');
+							$this->upload->initialize($config);
+							
+				 
+								if($this->upload->do_upload("file"))
+								{
+					
+									$upload_data = $this->upload->data();
+									$image=$upload_data['file_name'];
+								}else
+								{
+										$this->upload->display_errors()."file upload failed";
+										$image    ="";
+								}
+					}
+				}
+				
+				
+				if($_FILES['file1']['name']!='')
+				{
+					$data['image_z1']= $_FILES['file1']['name'];
+					$image1=sha1($_FILES['file1']['name']).time().rand(0, 9);
+				
+					if(!empty($_FILES['file1']['name']))
+					{
+				
+						$config =  array(
+						'upload_path'	  => './uploaded_images/',
+						'file_name'       => $image1,
+						'allowed_types'   => "gif|jpg|png|jpeg|JPG|jpe|JPEG|PNG|JPG",
+						'overwrite'       => true);
+						
+							$this->upload->initialize($config);
+							
+				 
+								if($this->upload->do_upload("file1"))
+								{
+					
+									$upload_data = $this->upload->data();
+									$image1=$upload_data['file_name'];
+								}else
+								{
+										$this->upload->display_errors()."file upload failed";
+										$image1    ="";
+								}
+					}
+				}
+				
+		$string = "$image1";
+		$string1 = $_POST['Eligibility1'];
+		$con= $string .','.$string1;
+		
 		$data=array('Alphabet_id'=>$this->input->post('Alphabet_id'),
-		'Eligibility'=>$this->input->post('Eligibility'),
+		'Image'=>$image,
+		'Eligibility'=>$con,
 		'Min_salary'=>$this->input->post('Min_salary'),
 		'Max_salary'=>$this->input->post('Max_salary'));
 			
@@ -133,6 +204,8 @@ class Careerpg extends CI_Controller
 	
 		
 	}
+	
+	/*-----------------------------function for deleting career---------------------*/
 	function delete($id=false)
 	{ 
 		Authority::is_logged_in();
@@ -152,6 +225,7 @@ class Careerpg extends CI_Controller
 		redirect('index.php/Careerpg/Mngcaindex');
 	}
 	
+	/*---------------------------function for restricting duplicate career name-----------------*/
 	function Check_career($careername=false)
         {
                

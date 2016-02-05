@@ -204,6 +204,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<a href="Javascript">
 							<i class="fa-picture-o"></i>
 							<span class="title">Manage Gallery</span>
+							
 						</a>
 					<ul>
 						<li>
@@ -265,6 +266,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<a href="<?=base_url();?>index.php/Loginpg/mentoractive">
 							<i class="fa-cog"></i>
 							<span class="title">Manage Mentor</span>
+						</a>
+					
+						
+					</li>
+					
+						<li>
+						<a href="<?=base_url();?>index.php/FAQpg/index1">
+							<i class="fa-cog"></i>
+							<span class="title">Manage FAQ</span>
 						</a>
 					
 						

@@ -10,12 +10,14 @@ class Careermitra_model extends CI_Model
 		//Load database connection
 		$this->load->database();
 	}
+	
+/*-------------------------function for fetching data for about us-------------*/
 	function aboutusget_data()
    {	
 		$qry=$this->db->query("Select Description from aboutus_master");
 		return $qry->Result();			
 	}
-	
+/*----------------------------function for fetching data for view of contact us-------------*/
 	function get_data()
 	{
 		$qry=$this->db->query("select Contactus_id,Company_name,Company_address,Phone_no,Email_address from contactus_master");

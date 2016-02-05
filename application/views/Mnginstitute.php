@@ -29,7 +29,7 @@
 						</div>
 				<div class="panel-body">
 							
-							<form role="form" class="validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Institutepg/Mnginsindex">
+							<form role="form" class="validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Institutepg/insert">
 								
 					<div class="form-group">
 					<input type="hidden" name="id" value="<?=isset($updatedata[0]->Institute_id)?$updatedata[0]->Institute_id:''?>" />
@@ -52,7 +52,8 @@
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Image</label>
 									
 								<div class="col-sm-10" style="margin-top:10px">
-									<input type="file" class="form-control" id="field-1" data-validate="required" name="file"><?=isset($updatedata[0]->Image)?$updatedata[0]->Image:''?>
+									<input type="file" class="form-control" id="i_file" data-validate="required" name="file"><?=isset($updatedata[0]->Image)?$updatedata[0]->Image:''?>
+								<h5>Image size must be under 50kb</h5>
 								</div>
 								
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Description</label>
@@ -91,18 +92,7 @@
 										<textarea class="form-control" cols="5" id="field-5" data-validate="required" name="Address"><?=isset($updatedata[0]->Address)?$updatedata[0]->Address:''?></textarea>
 								</div>
 		
-							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Longitude</label>
-									
-								<div class="col-sm-10" style="margin-top:10px">
-										<input type="Map" class="form-control" name="Longitude" id="field-1"value="<?=isset($updatedata[0]->Longitude)?$updatedata[0]->Longitude:''?>">
-								</div>
-								
-							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Latitude</label>
-									
-								<div class="col-sm-10" style="margin-top:10px">
-										<input type="Map" class="form-control" name="Latitude" id="field-1" value="<?=isset($updatedata[0]->Latitude)?$updatedata[0]->Latitude:''?>">
-								</div>
-								
+							
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-1">Language Id</label>
 									
 								<div class="col-sm-10" style="margin-top:10px">
@@ -121,7 +111,7 @@
 								</div>
 								
 								<div class="col-sm-12" >
-								<input type="submit" class="btn btn-default" value="submit" style="background-color:#8079C9; float:right ;margin-top:10px"></input>
+								<input type="submit" class="btn btn-default" id='i_submit1' value="submit" style="background-color:#8079C9; float:right ;margin-top:10px"></input>
 								</div>	
 		
 					</div>
@@ -170,8 +160,7 @@
 								<th>Official link</th>
 								<th>Contact no</th>
 								<th>Address</th>
-								<th>Longitude</th>
-								<th>Latitude</th>
+								
 								<th>Language_id</th>
 								<th>Action</th>
 							</tr>
@@ -187,8 +176,7 @@
 								<th>Official link</th>
 								<th>Contact no</th>
 								<th>Address</th>
-								<th>Longitude</th>
-								<th>Latitude</th>
+								
 								<th>Language_id</th>
 								<th>Action</th>
 							</tr>
@@ -200,14 +188,13 @@
 								<td><?= isset ($instituteshow->Alphabet_id) ?$instituteshow->Alphabet_id:''?></td>
 								<td><?= isset ($instituteshow->Institute_name) ?$instituteshow->Institute_name:''?></td>
 								<td><img src="<?=base_url();?>/uploaded_images/<?= isset ($instituteshow->Image) ?$instituteshow->Image:''?>"
-												height="70px" width="70px"></td>
+												height="120px" width="140px"></td>
 								<td><?= isset ($instituteshow->Description) ?$instituteshow->Description:''?></td>
 								<td><?= isset ($instituteshow->Group1) ?$instituteshow->Group1:''?></td>
 								<td><?= isset ($instituteshow->Official_link) ?$instituteshow->Official_link:''?></td>
 								<td><?= isset ($instituteshow->Contact_no) ?$instituteshow->Contact_no:''?></td>
 								<td><?= isset ($instituteshow->Address) ?$instituteshow->Address:''?></td>
-								<td><?= isset ($instituteshow->Longitude) ?$instituteshow->Longitude:''?></td>
-								<td><?= isset ($instituteshow->Latitude) ?$instituteshow->Latitude:''?></td>
+							
 								<td><?= isset ($instituteshow->Language_id) ?$instituteshow->Language_id:''?></td>
 								
 								<td><a href="<?=base_url();?>index.php/Institutepg/delete/<?=isset ($instituteshow->Institute_id) ?$instituteshow->Institute_id:''?>">
