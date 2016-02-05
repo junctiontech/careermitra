@@ -55,14 +55,14 @@ class Institutepg_model extends CI_Model
 	
 	function get_data()
 	{
-		$qry=$this->db->query("select Alphabet_id,institute_master.Institute_id,Group1,Institute_name,Description,Image,Address,Official_link,Contact_no,Longitude,Latitude,Language_id from institute_detail, institute_master
+		$qry=$this->db->query("select Alphabet_id,institute_master.Institute_id,Group1,Institute_name,Description,Image,Address,Official_link,Contact_no,Language_id from institute_detail, institute_master
 								where institute_master.Institute_id=institute_detail.Institute_id");
 		return $qry->result();
 	}
 	
 	function get_forupdate($id=false)
 	{
-		$qry=$this->db->query("select Alphabet_id,institute_master.Institute_id,Institute_name,Group1,Description,Image,Address,Official_link,Contact_no,Longitude,Latitude,Language_id from institute_detail, institute_master
+		$qry=$this->db->query("select Alphabet_id,institute_master.Institute_id,Institute_name,Group1,Description,Image,Address,Official_link,Contact_no,Language_id from institute_detail, institute_master
 								where institute_master.Institute_id=institute_detail.Institute_id and institute_master.Institute_id=$id");
 		return $qry->Result();	
 	}
