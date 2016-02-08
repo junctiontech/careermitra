@@ -63,27 +63,25 @@
 							<label class="col-sm-3 control-label" style="margin-top:10px" for="field-5">Job description</label>
 									
 								<div class="col-sm-9" style="margin-top:10px">
-										<textarea class="form-control" data-validate="required" name="Description" cols="5" id="field-5"> <?=isset($updatedata[0]->Description)?$updatedata[0]->Description:''?> </textarea>
+										
+										<textarea class="form-control ckeditor"  data-validate="required" name="Description"  id="field-5"> <?=isset($updatedata[0]->Description)?$updatedata[0]->Description:''?> </textarea>
 								</div>
 								
 									
-							<label class="col-sm-3 control-label" style="margin-top:10px"for="field-1">Post Name</label>
+							<label class="col-sm-3 control-label" style="margin-top:10px"for="field-1">Post Name and vacancy</label>
 									
 								<div class="col-sm-9" style="margin-top:10px">
-									<input type="text" class="form-control" data-validate="required" name="Post_name" value="<?=isset($updatedata[0]->Post_name)?$updatedata[0]->Post_name:''?>" id="field-1" placeholder="Name">
+								
+										<textarea class="form-control ckeditor"  data-validate="required" name="Post_name" id="field-1" placeholder="Name"><?=isset($updatedata[0]->Post_name)?$updatedata[0]->Post_name:''?></textarea>
 								</div>
 								
 		
-							<label class="col-sm-3 control-label" style="margin-top:10px" for="field-1">No of Vacancy</label>
-									
-								<div class="col-sm-9"style="margin-top:10px" >
-									<input type="number_format" class="form-control" data-validate="required" name="No_of_vacancy" value="<?=isset($updatedata[0]->No_of_vacancy)?$updatedata[0]->No_of_vacancy:''?>" id="field-1" placeholder="Available post">
-								</div>
+							
 								
 							<label class="col-sm-3 control-label" style="margin-top:10px" for="field-1">Pay Scale</label>
 									
 								<div class="col-sm-9"style="margin-top:10px" >
-									<input type="number_format" class="form-control" name="Pay_scale" value="<?=isset($updatedata[0]->Pay_scale)?$updatedata[0]->Pay_scale:''?>" id="field-1" placeholder="salary in rupee">
+									<textarea class="form-control ckeditor" name="Pay_scale" id="field-1" placeholder="salary in rupee" ><?=isset($updatedata[0]->Pay_scale)?$updatedata[0]->Pay_scale:''?></textarea>
 								</div>
 										
 							<h4 style="margin-left:10px; margin-top:15px">Eligibility</h4>
@@ -242,7 +240,7 @@
 								<th>Company name</th>
 								<th>Job Description</th>
 								<th>Post name</th>
-								<th>No of vacancy</th>
+
 								<th>Pay Scale</th>
 								<th>Education Qualification</th>
 								<th>Nationality</th>
@@ -261,7 +259,7 @@
 								<th>Company name</th>
 								<th>Job Description</th>
 								<th>Post name</th>
-								<th>No of vacancy</th>
+								
 								<th>Pay Scale</th>
 								<th>Education Qualification</th>
 								<th>Nationality</th>
@@ -281,7 +279,7 @@
 								<td><?=isset ($jobshow->Company_name) ?$jobshow->Company_name:''?></td>
 								<td><?=isset ($jobshow->Description) ?$jobshow->Description:''?></td>
 								<td><?=isset ($jobshow->Post_name) ?$jobshow->Post_name:''?></td>
-								<td><?=isset ($jobshow->No_of_vacancy) ?$jobshow->No_of_vacancy:''?></td>
+								
 								<td><?=isset ($jobshow->Pay_scale) ?$jobshow->Pay_scale:''?></td>
 								<td><?=isset ($jobshow->Qualification) ?$jobshow->Qualification:''?></td>
 								<td><?=isset ($jobshow->Nationality) ?$jobshow->Nationality:''?></td>

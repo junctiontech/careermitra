@@ -137,7 +137,7 @@ class Jobpg extends CI_Controller
 			
 			$data=array('Career_id'=>$this->input->post('Career_id'),
 			
-			'No_of_vacancy'=>$this->input->post('No_of_vacancy'),
+			
 			'Pay_scale'=>$this->input->post('Pay_scale'),
 			'Qualification'=>$this->input->post('Qualification'),
 			'Nationality'=>$this->input->post('Nationality'),

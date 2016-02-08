@@ -1,10 +1,12 @@
  <!--------------------------------------------Jumbotron-----------------------------------
 ------------------------------------------------------->
+
+<?php foreach ($student as $studentshow){?>
  <Body style="background-color:#FFF0F5">
 <div class="container">
 
-  <div class="jumbo"> 
-	<?php foreach ($student as $studentshow){?>
+  <div class="jumbo" style="background:url(<?=base_url();?>/uploaded_images/<?=isset ($studentshow->Bgimg) ?$studentshow->Bgimg:''?>);">
+	
      <div class="card-info"> 
 				<h3 style="margin-top:50px;margin-left:70px;font-size:70px;color:white; font-family:French Script MT"><?=isset ($studentshow->First_name) ?$studentshow->First_name:''?>
 					<?=isset ($studentshow->Last_name) ?$studentshow->Last_name:''?></h3>
@@ -49,33 +51,13 @@
             <img alt="user image" src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-thumbnail" 
 			style="height:150px; width:150px ; margin-left:20px;margin-top:30px" alt="user image">
 			  <?php } else {?>
-			   <img src="<?=base_url();?>/assets/images/user-2.png">
+			   <img src="<?=base_url();?>/assets/images/user-2.png" style="height:150px; width:150px ; margin-left:20px;margin-top:30px" alt="user image">
 		<?php } ?>
         </div>
         
   
 	
 		<?php }?>
-	
-   <!-- <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <div class="hidden-xs">Stars</div>
-            </button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                <div class="hidden-xs">Favorites</div>
-            </button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <div class="hidden-xs">Following</div>
-            </button>
-        </div>
-    </div>-->
-
-	
 	
 	
 	<div class="panel panel-info1" style="margin-top:40px;margin-left:20px">
@@ -86,7 +68,7 @@
               <div class="row">
 			   <div class=" col-md-12 col-lg-12 "> 
 			 
-			   <p>jhkjshksj</p>
+			   <p><?=isset ($studentshow->Myself) ?$studentshow->Myself:''?></p>
 			   </div>
 			   </div>
 			   </div>

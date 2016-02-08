@@ -55,7 +55,7 @@
 									
 								<div class="col-sm-10" style="margin-top:10px">
 								
-										<textarea class="form-control"  data-validate="required" name="Description" cols="5" id="field-5"
+										<textarea class="form-control ckeditor" data-validate="required" name="Description" cols="5" id="field-5"
 										onKeyDown="limitText(this.form.Description,this.form.countdown,1000);" 
 									onKeyUp="limitText(this.form.Description,this.form.countdown,1000);" ><?=isset ($updatedata[0]->Description) ?$updatedata[0]->Description:''?></textarea></br>
 									<font size="1">(Maximum characters: 1000)<br>

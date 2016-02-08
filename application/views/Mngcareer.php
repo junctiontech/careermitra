@@ -55,13 +55,16 @@
 								</div>
 								
 							
-								
+							
 								
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Introduction</label>
-									
+								
+								
 								<div class="col-sm-10" style="margin-top:10px">
 										
-										<textarea class="form-control" data-validate="required" name="Introduction" cols="5" id="field-5" >
+					
+	
+										<textarea class="form-control ckeditor"  data-validate="required" name="Introduction"   >
 										<?=isset ($updatedata[0]->Introduction) ?$updatedata[0]->Introduction:''?></textarea></br>
 								
 								</div>
@@ -82,7 +85,7 @@
 									
 								</div>
 								
-								<div class="col-sm-10" style="margin-top:10px;margin-left:158px">
+								<div class="col-sm-10" style="margin-top:10px;margin-left:168px">
 									<input type="text" class="form-control" data-validate="required" name="Eligibility1" id="field-1" placeholder="Text" value="<?=isset ($updatedata[0]->Eligibility) ?$updatedata[0]->Eligibility:''?>">
 								</div>
 								
@@ -102,7 +105,8 @@
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Job Prospects</label>
 									
 								<div class="col-sm-10" style="margin-top:10px">
-										<textarea class="form-control" cols="5"name="Job_prospects" id="field-5"> <?=isset ($updatedata[0]->Job_prospects) ?$updatedata[0]->Job_prospects:''?></textarea>
+										
+										<textarea class="form-control ckeditor"  name="Job_prospects" id="field-5"> <?=isset ($updatedata[0]->Job_prospects) ?$updatedata[0]->Job_prospects:''?></textarea>
 								</div>
 		
 							

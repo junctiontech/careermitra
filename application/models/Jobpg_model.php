@@ -46,7 +46,7 @@ class Jobpg_model extends CI_Model
 	
 	function detail($id=false)
 	{
-		$qry=$this->db->query("Select Company_name,Description,Post_name,No_of_vacancy,Pay_scale,Qualification,Nationality,Age_limit,Job_location,Selection_process,Detail
+		$qry=$this->db->query("Select Company_name,Description,Post_name,Pay_scale,Qualification,Nationality,Age_limit,Job_location,Selection_process,Detail
 						from job_master,job_detail where job_master.Job_id=job_detail.Job_id and job_master.Job_id=$id");
 		return $qry->Result();
 	}
@@ -89,7 +89,7 @@ class Jobpg_model extends CI_Model
 	
 	function get_data()
 	{
-		$qry=$this->db->query("select job_master.Job_id,job_master.Career_id,career_detail.Career_name,Company_name,Description,Post_name,No_of_vacancy,Pay_scale,Qualification,Nationality,
+		$qry=$this->db->query("select job_master.Job_id,job_master.Career_id,career_detail.Career_name,Company_name,Description,Post_name,Pay_scale,Qualification,Nationality,
 								Age_limit,Job_location,Selection_process,Detail ,job_detail.Language_id
 								from job_master,job_detail,career_master,career_detail where job_master.Job_id=job_detail.Job_id and job_master.Career_id=career_master.Career_id
 								and career_master.Career_id=career_detail.Career_id  ");
@@ -98,7 +98,7 @@ class Jobpg_model extends CI_Model
 	
 	function get_forupdate($id=false)
 	{
-		$qry=$this->db->query("select job_master.Job_id,job_master.Career_id,career_detail.Career_name,Company_name,Description,Post_name,No_of_vacancy,Pay_scale,Qualification,Nationality,
+		$qry=$this->db->query("select job_master.Job_id,job_master.Career_id,career_detail.Career_name,Company_name,Description,Post_name,Pay_scale,Qualification,Nationality,
 								Age_limit,Job_location,Selection_process,Detail,job_detail.Language_id
 								from job_master,job_detail,career_master,career_detail where job_master.Job_id=job_detail.Job_id and job_master.Career_id=career_master.Career_id
 								and career_master.Career_id=career_detail.Career_id and job_master.Job_id=$id");

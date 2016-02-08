@@ -52,14 +52,14 @@
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Image</label>
 									
 								<div class="col-sm-10" style="margin-top:10px">
-									<input type="file" class="form-control" id="i_file" data-validate="required" name="file"><?=isset($updatedata[0]->Image)?$updatedata[0]->Image:''?>
+									<input type="file" class="form-control" id="i_file"  name="file"><?=isset($updatedata[0]->Image)?$updatedata[0]->Image:''?>
 								<h5>Image size must be under 50kb</h5>
 								</div>
 								
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Description</label>
 									
 								<div class="col-sm-10" style="margin-top:10px">
-										<textarea class="form-control" cols="5" id="field-5" data-validate="required" name="Description"><?=isset($updatedata[0]->Description)?$updatedata[0]->Description:''?></textarea>
+									<textarea class="form-control ckeditor"  id="field-5"  name="Description"><?=isset($updatedata[0]->Description)?$updatedata[0]->Description:''?></textarea>
 								</div>
 								
 								
@@ -74,7 +74,7 @@
 							<label class="col-sm-2 control-label" style="margin-top:10px"for="field-1">Official link</label>
 									
 								<div class="col-sm-10" style="margin-top:10px">
-									<input type="text" class="form-control" id="field-1" data-validate="required" placeholder="Branch" name="Official_link" value="<?=isset($updatedata[0]->Official_link)?$updatedata[0]->Official_link:''?>">
+									<input type="text" class="form-control" id="field-1"  placeholder="Branch" name="Official_link" value="<?=isset($updatedata[0]->Official_link)?$updatedata[0]->Official_link:''?>">
 								</div>
 
 							
@@ -82,21 +82,21 @@
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-1">Contact no</label>
 									
 								<div class="col-sm-10"style="margin-top:10px" >
-									<input type="number_format" class="form-control" data-validate="required,number" id="field-1" name="Contact_no" placeholder="phone no" value="<?=isset($updatedata[0]->Contact_no)?$updatedata[0]->Contact_no:''?>">
+									<input type="number_format" class="form-control"  id="field-1" name="Contact_no" placeholder="phone no" value="<?=isset($updatedata[0]->Contact_no)?$updatedata[0]->Contact_no:''?>">
 								</div>
 									
 										
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-5">Address</label>
 									
 								<div class="col-sm-10" style="margin-top:10px">
-										<textarea class="form-control" cols="5" id="field-5" data-validate="required" name="Address"><?=isset($updatedata[0]->Address)?$updatedata[0]->Address:''?></textarea>
+										<textarea class="form-control ckeditor" cols="5" id="field-5"  name="Address" ><?=isset($updatedata[0]->Address)?$updatedata[0]->Address:''?></textarea>
 								</div>
 		
 							
 							<label class="col-sm-2 control-label" style="margin-top:10px" for="field-1">Language Id</label>
 									
 								<div class="col-sm-10" style="margin-top:10px">
-									<select class="form-control" data-validate="required" name="Language_id">
+									<select class="form-control"   data-validate="required" name="Language_id">
 									
 									<Option value="">Select</option>
 									<?php foreach($Lang as $Langshow){?>

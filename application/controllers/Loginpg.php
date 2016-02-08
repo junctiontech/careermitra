@@ -52,6 +52,7 @@ class Loginpg extends CI_Controller {
 						'usermailid'=>$this->input->post('usermailid'),
 						'password'=>md5($this->input->post('password'))
 						);	//print_r($data);die;
+
 						
 			 $row=$this->Loginpg_model->login_check('users',$data);
 			 	
@@ -139,13 +140,9 @@ class Loginpg extends CI_Controller {
 																	
 	}
 			
-				{	
-				
-				$this->session->set_flashdata('message_type', 'error');
+			$this->session->set_flashdata('message_type', 'error');
 				$this->session->set_flashdata('message', $this->config->item("login").' Invalid User Name Or Password!!');
 				  redirect('index.php/Loginpg/index');
-				}
-			
 
 			
 	
@@ -267,6 +264,7 @@ function stview()
 function insert1()
 	
 	{ $image ="";
+	$image1 ="";
 			
 		if($_FILES['file']['name']!='')
 				{
@@ -299,10 +297,42 @@ function insert1()
 					}
 				}
 				
+			if($_FILES['file1']['name']!='')
+				{
+					$data['image_z1']= $_FILES['file1']['name'];
+					$image1=sha1($_FILES['file1']['name']).time().rand(0, 9);
+				
+					if(!empty($_FILES['file1']['name']))
+					{
+				
+						$config =  array(
+						'upload_path'	  => './uploaded_images/',
+						'file_name'       => $image1,
+						'allowed_types'   => "gif|jpg|png|jpeg|JPG|jpe|JPEG|PNG|JPG",
+						'overwrite'       => true);
+						
+							$this->upload->initialize($config);
+							
+				 
+								if($this->upload->do_upload("file1"))
+								{
+					
+									$upload_data = $this->upload->data();
+									$image1=$upload_data['file_name'];
+								}else
+								{
+										$this->upload->display_errors()."file upload failed";
+										$image1    ="";
+								}
+					}
+				}
+				
 				
 			$data=array('First_name'=>$this->input->post('First_name'),
 			'Last_name'=>$this->input->post('Last_name'),
+			'Myself'=>$this->input->post('Myself'),
 			'Image'=>$image,
+			'Bgimg'=>$image1,
 			'role_id'=>$this->input->post('role_id'),
 			'Gender'=>$this->input->post('Gender'),
 			'Status'=>$this->input->post('Status'),
@@ -421,12 +451,13 @@ function insert1()
 		if($this->role_id=='student'){
 	
 		$this->data['state']=$this->Loginpg_model->stateget_data();
+		
 		if(!empty($user_id))
 			
 		{
 			
-		$this->data['student']=$this->Loginpg_model->stupro($user_id);
-
+		$student=$this->data['student']=$this->Loginpg_model->stupro($user_id);
+		//print_r($student);die;
 		}
 		$this->parser->parse('Header',$this->data);
 		$this->load->view('Editprofile');
@@ -439,7 +470,7 @@ function insert1()
 				{
 			
 			
-		$this->data['student']=$this->Loginpg_model->stupro($user_id);
+		$student=$this->data['student']=$this->Loginpg_model->stupro($user_id);
 				}
 		
 		$this->parser->parse('Header',$this->data);
@@ -895,10 +926,18 @@ function insert1()
 	
 	
 	
-	function password()
+	function change_pass()
 	{
-		$this->parser->parse('Adminheader',$this->data);
+		
 		$this->load->view('Password1');
-		$this->parser->parse('Adminfooter',$this->data);
+	
 	}
+	
+	function change_role()
+	{
+		
+		$this->load->view('Role');
+	
+	}
+	
 }

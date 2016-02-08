@@ -117,7 +117,7 @@
 							<label class="col-sm-4 control-label" style="margin-top:10px" for="field-5">Description</label>
 									
 								<div class="col-sm-8" style="margin-top:10px">
-										<textarea class="form-control" cols="5" data-validate="required" name="Description" id="field-5"><?=isset($updatedata[0]->Description)?$updatedata[0]->Description:''?></textarea>
+										<textarea class="form-control ckeditor"  data-validate="required" name="Description" id="field-5"><?=isset($updatedata[0]->Description)?$updatedata[0]->Description:''?></textarea>
 								</div>
 								
 									
@@ -129,7 +129,7 @@
 									
 							<label class="col-sm-4 control-label" style="margin-top:10px" for="field-5">Syllabus</label>
 									<div class="col-sm-8"style="margin-top:10px">
-										<textarea class="form-control" cols="5" data-validate="required" name="Syllabus" id="field-5"><?=isset($updatedata[0]->Syllabus)?$updatedata[0]->Syllabus:''?></textarea>
+										<textarea class="form-control ckeditor" cols="5" data-validate="required" name="Syllabus" id="field-5"><?=isset($updatedata[0]->Syllabus)?$updatedata[0]->Syllabus:''?></textarea>
 									</div>
 									
 							<label class="col-sm-4 control-label"style="margin-top:10px" for="field-1">Date of Exam </label>

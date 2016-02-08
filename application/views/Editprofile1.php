@@ -33,54 +33,29 @@
            <a class="btn" data-controls-modal="my-modal" value="Change password" type="button" style="margin-top:20px; margin-left:20px;background-color:#8079C9;">
             <span></span>
             <input class="btn btn-primary" value="Change role" type="button" style="margin-top:20px; margin-left:20px; background-color:#8079C9;">
-			
-			<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="my-modal" aria-hidden="true">
-                <div class="modal-dialog modal-lg"id="my-modal">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> </button>
-                      <h4 class="modal-title" id="my-modal">Change Password</h4>
-                    </div>
-                    <div class="modal-body">
-					
-                      <form class="form-horizontal form-label-left">
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Old password</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" placeholder="Plan title" class="form-control">
-                    </div>
-                  </div>
-                  
-				  <form class="form-horizontal form-label-left">
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> New password</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" placeholder="Plan title" class="form-control">
-                    </div>
-                  </div>
-				  
-				  <form class="form-horizontal form-label-left">
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Confirm password</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" placeholder="Plan title" class="form-control">
-                    </div>
-                  </div>
-                  
-                    </div>
-                  </div>
+			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
 
-                </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
+			
 
     </div>
     <!-- edit form column -->

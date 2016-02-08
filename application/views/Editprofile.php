@@ -1,21 +1,30 @@
-<div class="container" style="padding-top: 60px;">
-<link href="<?=base_url();?>/../css/custom11.css" rel="stylesheet">
+<body>
+
 <link href="<?=base_url();?>/../css/css/tooplate_style.css" rel="stylesheet">
- <body>
-
-
+ <?php foreach ($student as $studentshow){
  
- <?php foreach ($student as $studentshow){?>
-	
+   if(!empty($studentshow->Bgimg)){?>
+ 
+ <div class="container" style="padding-top: 60px; background:url(<?=base_url();?>/uploaded_images/<?=isset ($studentshow->Bgimg) ?$studentshow->Bgimg:''?>); repeat-y; center;">
+
+
+  <?php }else {?>
+  <div class="container" style="padding-top: 60px; background:url(<?=base_url();?>/img/back.jpg?>); repeat-y; center;">
+
+ <?php }?>
+ 
+
 <form role="form" class="form-horizontal" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
 
   
   <div class="col-md-12 col-sm-12 col-xs-12">
 
-            <input class="btn btn-primary" value="Change password" type="button" style="margin-top:20px; margin-left:950px;background-color:#8079C9;">
-            <span></span>
-            <input class="btn btn-primary" value="Change role" type="button" style="margin-top:20px; margin-left:950px; background-color:#8079C9;">
-     </div>   
+            <a class="btn btn-primary btn-md" href="<?=base_url();?>index.php/Loginpg/change_pass" style="margin-top:20px; margin-left:950px;background-color:#8079C9;" data-toggle="modal" data-target="#myModal">Change Password</a>
+            
+            <a class="btn btn-primary btn-md" href="<?=base_url();?>index.php/Loginpg/change_role" style="margin-top:20px; margin-left:950px; background-color:#8079C9;">Change role</a>
+     </div> 
+
+	
       <div class="text-center">
 
 	   <?php if(!empty($studentshow->Image)){?>
@@ -31,9 +40,6 @@
 		
       </div>
 		
-	
-
-
     
     <!-- edit form column -->
 
@@ -48,9 +54,9 @@
 
 <input type="hidden" name="id" value="<?=isset ($studentshow->user_id) ?$studentshow->user_id:''?>" />
 <input type="hidden" name="role_id" value="<?=isset ($studentshow->role_id) ?$studentshow->role_id:''?>" />
-   
-
-
+ <input type="hidden" name="Status" value="<?=isset ($studentshow->Status) ?$studentshow->Status:''?>" />  
+ <input type="hidden" name="Password" value="<?=isset ($studentshow->Password) ?$studentshow->Password:''?>" />  
+ <input type="hidden" name="file1" value="<?=isset ($studentshow->Bgimg) ?$studentshow->Bgimg:''?>" /> 
 
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="margin-left:140px ; margin-top:10px">
@@ -59,8 +65,18 @@
         <i class="fa fa-coffee"></i>
         This is an <strong>.alert</strong>. Use this to show important messages to the user.
       </div>-->
+
+	  
+	  
       <h3>Personal info</h3>
       
+	   <div class="form-group">
+          <label class="col-lg-3 control-label">About myself</label>
+	  <div class="col-lg-8">
+         <textarea class="form-control autogrow" name="Myself" ><?=isset ($studentshow->Myself) ?$studentshow->Myself:''?> </textarea>
+          </div>
+		  </div>
+	  
         <div class="form-group">
           <label class="col-lg-3 control-label">First name:</label>
           <div class="col-lg-8">
@@ -173,10 +189,7 @@
 								</div>
 								
 								
-								
-								
-								
-								<h3>Education Detail</h3>
+								<h3><b>Education Detail</b></h3>
 								
 								
 								<h3>Post graduation</h3>
@@ -251,6 +264,30 @@
 													value="<?=isset ($studentshow->usermailid) ?$studentshow->usermailid:''?>" placeholder="Could also be your email" />
 							</div>
 						</div>
+						
+					<hr>	
+					<h3 style="margin-top:25px">Customize Profile</h3>	
+						<div class="form-group">
+							<label class="col-lg-3 control-label">Background Image</label>
+							<div class="col-md-8">
+							
+								<h5 style="color:white">Upload a different Background image...</h5>
+        <input type="file"  class="text-center center-block well well-sm" name="file1" value="<?=isset ($studentshow->Bgimg) ?$studentshow->Bgimg:''?>" Placeholder="Changes background image" />
+							</div>
+						</div>
+						
+						
+						<div class="form-group">
+							<label class="col-lg-3 control-label">Background color</label>
+							<div class="col-md-8">
+						
+								<input type="text" class="form-control " name="color" 
+													value="<?=isset ($studentshow->color) ?$studentshow->color:''?>" placeholder="Changes background color" />
+							</div>
+						</div>
+						
+						
+						
 											
         <!--<div class="form-group">
         <label class="col-lg-3 control-label">Old Password</label>
@@ -292,13 +329,13 @@
 
 </div>	
        
-    </div> <!-- end of main -->
+    <!-- end of main -->
     <div id="tooplate_main_bottom"></div>
 		
 
 </body>
 
-
+ </div>
 
    
 
