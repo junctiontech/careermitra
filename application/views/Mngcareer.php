@@ -51,7 +51,7 @@
 								
 								<span class="msg_box_1"></span>	
 								<div class="col-sm-10" style="margin-top:10px">
-									<input type="text" name="Career_name" class="form-control" onblur="check_career('1');" data-validate="required" id="reg-career" placeholder="Name" value="<?=isset ($updatedata[0]->Alphabet_id) ?$updatedata[0]->Alphabet_id:''?>">
+									<input type="text" name="Career_name" class="form-control" onblur="check_career('1');" data-validate="required" id="reg-career" placeholder="Name" value="<?=isset ($updatedata[0]->Career_name) ?$updatedata[0]->Career_name:''?>">
 								</div>
 								
 							
@@ -86,7 +86,7 @@
 								</div>
 								
 								<div class="col-sm-10" style="margin-top:10px;margin-left:168px">
-									<input type="text" class="form-control" data-validate="required" name="Eligibility1" id="field-1" placeholder="Text" value="<?=isset ($updatedata[0]->Eligibility) ?$updatedata[0]->Eligibility:''?>">
+									<textarea class="form-control ckeditor"  data-validate="required" name="Eligibility1" id="field-1" placeholder="Text"><?=isset ($updatedata[0]->Eligibility) ?$updatedata[0]->Eligibility:''?></textarea>
 								</div>
 								
 		

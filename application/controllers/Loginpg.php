@@ -162,7 +162,9 @@ class Loginpg extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('index.php/Loginpg/index');
 	}
-		
+	
+	
+	
 /*----------------------- function for mentor registration page -----------------------*/	
 
 function mtview()
@@ -209,14 +211,46 @@ function insert()
 								}
 					}
 				}
+
+		if($_FILES['file1']['name']!='')
+				{
+					$data['image_z1']= $_FILES['file1']['name'];
+					$image1=sha1($_FILES['file1']['name']).time().rand(0, 9);
+				
+					if(!empty($_FILES['file1']['name']))
+					{
+				
+						$config =  array(
+						'upload_path'	  => './uploaded_images/',
+						'file_name'       => $image1,
+						'allowed_types'   => "gif|jpg|png|jpeg|JPG|jpe|JPEG|PNG|JPG",
+						'overwrite'       => true);
+						
+							$this->upload->initialize($config);
+							
+				 
+								if($this->upload->do_upload("file1"))
+								{
+					
+									$upload_data = $this->upload->data();
+									$image1=$upload_data['file_name'];
+								}else
+								{
+										$this->upload->display_errors()."file upload failed";
+										$image1    ="";
+								}
+					}
+				}
 				
 				
 			$data=array('First_name'=>$this->input->post('First_name'),
 			'Last_name'=>$this->input->post('Last_name'),
 			'Image'=>$image,
+			'Bgimg'=>$image1,
 			'role_id'=>$this->input->post('role_id'),
 			'Gender'=>$this->input->post('Gender'),
 			'Status'=>$this->input->post('Status'),
+			'Color'=>$this->input->post('Color'),
 			'Contact_no'=>$this->input->post('Contact_no'),
 			//'Email'=>$this->input->post('Email'),
 			'Qualification'=>$this->input->post('Qualification'),
@@ -337,6 +371,7 @@ function insert1()
 			'Gender'=>$this->input->post('Gender'),
 			'Status'=>$this->input->post('Status'),
 			'DOB'=>$this->input->post('DOB'),
+			'Color'=>$this->input->post('Color'),
 			'Contact_no'=>$this->input->post('Contact_no'),
 			'House_no'=>$this->input->post('House_no'),
 			'Street'=>$this->input->post('Street'),
@@ -355,7 +390,7 @@ function insert1()
 			'password'=>md5($this->input->post('password')),
 			'Confirm_password'=>md5($this->input->post('Confirm_password')));
 			
-			
+	
 			if(!empty($this->input->post('id')))
 		
 			{
@@ -939,5 +974,207 @@ function insert1()
 		$this->load->view('Role');
 	
 	}
+	/*----------------------- function for mentor profile updation -----------------------*/
 	
+	
+	function update_mentor()
+	
+	{ $image ="";
+	
+	if($_FILES['file']['name']!='')
+				{
+					$data['image_z1']= $_FILES['file']['name'];
+					$image=sha1($_FILES['file']['name']).time().rand(0, 9);
+				
+					if(!empty($_FILES['file']['name']))
+					{
+				
+						$config =  array(
+						'upload_path'	  => './uploaded_images/',
+						'file_name'       => $image,
+						'allowed_types'   => "gif|jpg|png|jpeg|jpe|JPG|JPEG|PNG|JPG",
+						'overwrite'       => true,
+						'max_size'        => '25kb');
+						
+							$this->upload->initialize($config);
+							
+				 
+								if($this->upload->do_upload("file"))
+								{
+					
+									$upload_data = $this->upload->data();
+									$image=$upload_data['file_name'];
+								}else
+								{
+										$this->upload->display_errors()."file upload failed";
+										$image ="";
+								}
+					}
+				}
+
+		if($_FILES['file1']['name']!='')
+				{
+					$data['image_z1']= $_FILES['file1']['name'];
+					$image1=sha1($_FILES['file1']['name']).time().rand(0, 9);
+				
+					if(!empty($_FILES['file1']['name']))
+					{
+				
+						$config =  array(
+						'upload_path'	  => './uploaded_images/',
+						'file_name'       => $image1,
+						'allowed_types'   => "gif|jpg|png|jpeg|JPG|jpe|JPEG|PNG|JPG",
+						'overwrite'       => true);
+						
+							$this->upload->initialize($config);
+							
+				 
+								if($this->upload->do_upload("file1"))
+								{
+					
+									$upload_data = $this->upload->data();
+									$image1=$upload_data['file_name'];
+								}else
+								{
+										$this->upload->display_errors()."file upload failed";
+										$image1    ="";
+								}
+					}
+				}
+				
+				
+			$data=array('First_name'=>$this->input->post('First_name'),
+			'Last_name'=>$this->input->post('Last_name'),
+			'Image'=>$image,
+			'Bgimg'=>$image1,
+			'role_id'=>$this->input->post('role_id'),
+			'Gender'=>$this->input->post('Gender'),
+			'Status'=>$this->input->post('Status'),
+			'Color'=>$this->input->post('Color'),
+			'Contact_no'=>$this->input->post('Contact_no'),
+			//'Email'=>$this->input->post('Email'),
+			'Qualification'=>$this->input->post('Qualification'),
+			'Current_job'=>$this->input->post('Current_job'),
+			'More_info'=>$this->input->post('More_info'),
+			'usermailid'=>$this->input->post('usermailid'),
+			);
+		
+			if(!empty($this->input->post('id')))
+		
+			{
+				
+			$filter=array('user_id'=>$this->input->post('id'));
+			$this->Loginpg_model->update('users',$data,$filter);
+			redirect ('index.php/Loginpg/editprofile/'.$this->input->post('id'));
+			
+			}
+	}
+/*----------------------- function for student profile updation -----------------------*/
+	
+		function student_update()
+	
+	{ $image ="";
+	$image1 ="";
+			
+		if($_FILES['file']['name']!='')
+				{
+					$data['image_z1']= $_FILES['file']['name'];
+					$image=sha1($_FILES['file']['name']).time().rand(0, 9);
+				
+					if(!empty($_FILES['file']['name']))
+					{
+				
+						$config =  array(
+						'upload_path'	  => './uploaded_images/',
+						'file_name'       => $image,
+						'allowed_types'   => "gif|jpg|png|jpeg|jpe|JPG|JPEG|PNG|JPG",
+						'overwrite'       => true,
+						'max_size'        => '25kb');
+						
+							$this->upload->initialize($config);
+							
+				 
+								if($this->upload->do_upload("file"))
+								{
+					
+									$upload_data = $this->upload->data();
+									$image=$upload_data['file_name'];
+								}else
+								{
+										$this->upload->display_errors()."file upload failed";
+										$image ="";
+								}
+					}
+				}
+				
+			if($_FILES['file1']['name']!='')
+				{
+					$data['image_z1']= $_FILES['file1']['name'];
+					$image1=sha1($_FILES['file1']['name']).time().rand(0, 9);
+				
+					if(!empty($_FILES['file1']['name']))
+					{
+				
+						$config =  array(
+						'upload_path'	  => './uploaded_images/',
+						'file_name'       => $image1,
+						'allowed_types'   => "gif|jpg|png|jpeg|JPG|jpe|JPEG|PNG|JPG",
+						'overwrite'       => true);
+						
+							$this->upload->initialize($config);
+							
+				 
+								if($this->upload->do_upload("file1"))
+								{
+					
+									$upload_data = $this->upload->data();
+									$image1=$upload_data['file_name'];
+								}else
+								{
+										$this->upload->display_errors()."file upload failed";
+										$image1    ="";
+								}
+					}
+				}
+				
+				
+			$data=array('First_name'=>$this->input->post('First_name'),
+			'Last_name'=>$this->input->post('Last_name'),
+			'Myself'=>$this->input->post('Myself'),
+			'Image'=>$image,
+			'Bgimg'=>$image1,
+			'role_id'=>$this->input->post('role_id'),
+			'Gender'=>$this->input->post('Gender'),
+			'Status'=>$this->input->post('Status'),
+			'DOB'=>$this->input->post('DOB'),
+			'Color'=>$this->input->post('Color'),
+			'Contact_no'=>$this->input->post('Contact_no'),
+			'House_no'=>$this->input->post('House_no'),
+			'Street'=>$this->input->post('Street'),
+			'Line2'=>$this->input->post('Line2'),
+			'City'=>$this->input->post('City'),
+			'State'=>$this->input->post('State'),
+			'Zip'=>$this->input->post('Zip'),
+			'PG_subject'=>$this->input->post('PG_subject'),
+			'PG_university'=>$this->input->post('PG_university'),
+			'G_subject'=>$this->input->post('G_subject'),
+			'G_university'=>$this->input->post('G_university'),
+			'School_subject'=>$this->input->post('School_subject'),
+			'School_name'=>$this->input->post('School_name'),
+			'Other'=>$this->input->post('Other'),
+			'usermailid'=>$this->input->post('usermailid'),
+			);
+			
+	
+			if(!empty($this->input->post('id')))
+		
+			{
+				
+			$filter=array('user_id'=>$this->input->post('id'));
+			$this->Loginpg_model->update('users',$data,$filter);
+			redirect ('index.php/Loginpg/editprofile/'.$this->input->post('id'));
+			}
+			
+			
+	}
 }

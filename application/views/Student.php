@@ -11,7 +11,29 @@
 				
 			</h3>
 			<br />
-			
+			<script type="text/javascript">
+				jQuery(document).ready(function($)
+				{
+					$(".multi-select").multiSelect({
+						afterInit: function()
+						{
+							// Add alternative scrollbar to list
+							this.$selectableContainer.add(this.$selectionContainer).find('.ms-list').perfectScrollbar();
+						},
+						afterSelect: function()
+						{
+							// Update scrollbar size
+							this.$selectableContainer.add(this.$selectionContainer).find('.ms-list').perfectScrollbar('update');
+						}
+					});
+					
+					$(".selectboxit").selectBoxIt().on('open', function()
+					{
+						// Adding Custom Scrollbar
+						$(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+					});
+				});
+			</script>
 			
 			
 			<form  role="form" id="rootwizard" class="form-wizard validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
@@ -347,7 +369,17 @@
 						
 					</div>
 					
+					<ul class="pager wizard">
+						<li class="previous">
+							<a href="#"><i class="entypo-left-open"></i> Previous</a>
+						</li>
+						
+						<li class="next">
+							<a href="#">Next <i class="entypo-right-open"></i></a>
+						</li>
+					</ul>
 					
+				</div>
 					
 			</form>
 			

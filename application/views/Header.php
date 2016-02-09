@@ -43,7 +43,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ================================================== -->
  
 <!--<div class="navbar-wrapper">-->
-	
+	    <?php $userdata =$this->session->userdata('user_data');
+				$name=$userdata['First_name'];
+				$id=$userdata['user_id'];
+				$roleid=$userdata['role_id'];?>
+				
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -56,7 +60,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a class="navbar-brand" href="<?=base_url();?>index.php/Careermitra/index1" style="font-size:25px">CareerMitra</a>
      
 				</div>
-    
+
+				
+				
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 	   
@@ -90,76 +96,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
   
 				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown" >
+					<li class="dropdown" ></li>
 	
-						<?php $userdata =$this->session->userdata('user_data');
-							$name=$userdata['First_name'];
-							$id=$userdata['user_id'];
-							if(!empty($userdata))
-							{ ?>
-						
-					</li>
-					
-					<li class="dropdown user-profile">
-					
-						<?php foreach ($student as $studentshow){?>
-						<a href="#" data-toggle="dropdown">
-						
+	
+<?php if(!empty($userdata))
+			
+		{  foreach ($student as $studentshow){ ?>	
+			   <li class="dropdown user-profile">
+					<a href="#" data-toggle="dropdown">
 						<?php if(!empty($studentshow->Image)){?>
 						<img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" alt="user-image" class="img-circle img-inline" height="32" width="35"  style="margin-top:3px"/>
 						<?php } else {?>
 						<img src="<?=base_url();?>/assets/images/user-2.png" style="height:30px; width:30px">
 						<?php } ?>
-							
-							<span>
-								<?php echo $name ?>
-								<i class="fa-angle-down"></i>
-							</span>
-						</a>
-					
-				
-						<ul class="dropdown-menu user-profile-menu list-unstyled">
+						<span>
+							<?php echo $name ?>
+							<i class="fa-angle-down"></i>
+						</span>
+					</a>
+					<ul class="dropdown-menu user-profile-menu list-unstyled">
+						
 							<li>
 								<a href="<?=base_url();?>index.php/Loginpg/editprofile/<?=isset($studentshow->user_id) ?$studentshow->user_id:''?>">
 									<i class="fa-edit"></i>
 									Edit profile
 								</a>
 							</li>
-							
+						
+					
+						<?php if($roleid=='student'){ ?>	
 							<li>
 								<a href="<?=base_url();?>index.php/Loginpg/stpro/<?=isset($studentshow->user_id) ?$studentshow->user_id:''?>">
 									<i class="fa-user"></i>
 									Profile
 								</a>
 							</li>
-							
-							<li class="last">
-								<a href="<?=base_url();?>index.php/Loginpg/logout">
-									<i class="fa-lock"></i>
-									Logout
-								</a>
-							</li>
-						</ul>
-	<?php }?>	
+						<?php } elseif ($roleid=='mentor'){ ?>
+					<li>
+						<a href="<?=base_url();?>index.php/Loginpg/mtpro/<?=isset($studentshow->user_id) ?$studentshow->user_id:''?>">
+							<i class="fa-user"></i>
+							Profile
+						</a>
 					</li>
-					
-		
-		<!--<li><span class="glyphicon glyphicon-user"><?php echo $name ?></span></li>
-		<li><a href="<?=base_url();?>index.php/Loginpg/logout"><i class="fa-lock">Log out</i></a></li>-->
-		
-		<?php  }
-		
-		else { ?>
-		
+					<?php } ?>
+					<li class="last">
+						<a href="<?=base_url();?>index.php/Loginpg/logout">
+								<i class="fa-lock"></i>
+									Logout
+						</a>
+					</li>
+					</ul>
+					</li>
+	<?php } 	
+		} else { ?>
+				<li>
 					<a class="dropdown-toggle" data-toggle="dropdown"id="nav2" href="#" ><span class="glyphicon glyphicon-user" >Sign up
 						<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?=base_url();?>index.php/Loginpg/stview"><span class="glyphicon glyphicon-user">Student</a></li>
 								<li><a href="<?=base_url();?>index.php/Loginpg/mtview"><span class="glyphicon glyphicon-user">Mentor</a></li>
-							</ul>
+							</ul></li>
 						<li><a href="<?=base_url();?>index.php/Loginpg"><span class="glyphicon glyphicon-log-in">Login</a></li>
 	
-						<?php }?>
+						<?php } ?>
 				</ul>
 	
 			</div>

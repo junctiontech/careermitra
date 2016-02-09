@@ -4,9 +4,13 @@
 <?php foreach ($student as $studentshow){?>
  <Body style="background-color:#FFF0F5">
 <div class="container">
-
+<?php if(!empty($studentshow->Bgimg)){?>
   <div class="jumbo" style="background:url(<?=base_url();?>/uploaded_images/<?=isset ($studentshow->Bgimg) ?$studentshow->Bgimg:''?>);">
 	
+  <?php }else {?>
+  <div class="jumbo" style=" background:url(<?=base_url();?>/img/back.jpg?>); repeat-y; center;">
+
+ <?php }?>
      <div class="card-info"> 
 				<h3 style="margin-top:50px;margin-left:70px;font-size:70px;color:white; font-family:French Script MT"><?=isset ($studentshow->First_name) ?$studentshow->First_name:''?>
 					<?=isset ($studentshow->Last_name) ?$studentshow->Last_name:''?></h3>
@@ -172,7 +176,7 @@
 						Line2-<?=isset ($studentshow->Line2) ?$studentshow->Line2:''?></br></br>
 						City-<?=isset ($studentshow->City) ?$studentshow->City:''?></br></br>
 						State-<?=isset ($studentshow->State) ?$studentshow->State:''?></br></br>
-						Zip-<?=isset ($studentshow->ZIP) ?$studentshow->ZIP:''?></td>
+						Zip-     <?=isset ($studentshow->ZIP) ?$studentshow->ZIP:''?></td>
                      </tr>
 
 					
@@ -238,7 +242,7 @@
                  <div class="panel-footer">
                         
                             <a href=<?=base_url();?>index.php/Loginpg/editprofile/<?=isset($studentshow->user_id) ?$studentshow->user_id:''?> data-original-title="Edit my profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a data-original-title="Delete my account" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                           <!-- <a data-original-title="Delete my account" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>-->
                         </span>
                     </div>
             
