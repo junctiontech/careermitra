@@ -502,27 +502,32 @@
 				
 				<div class="panel-body">
 					
-						<?php foreach ($detail1 as $detail1show){?>
-						
+						<?php foreach ($detail1 as $detail1show){
+						if(!empty($detail1show->Image)){?>
 						<p style="color:grey"><img src="<?=base_url();?>/uploaded_images/<?=isset ($detail1show->Image) ?$detail1show->Image:''?>"height="350px" width="1095px"></p>
-				
+						<?php } ?>
+						
+						<?php if(!empty($detail1show->Description)){?>
 						<h4 style="color:#8079C9;margin-top:15px">Description</h4>
 						<p style="color:grey"><?=isset ($detail1show->Description) ?$detail1show->Description:''?>
 						 </p>
-				
+						
+						<?php }if(!empty($detail1show->Group1)){?>
 						<h4 style="color:#8079C9;margin-top:15px">Group</h4>
 						<p style="color:grey"><?=isset ($detail1show->Group1) ?$detail1show->Group1:''?></p>
-				
+
+						<?php }if(!empty($detail1show->Official_link)){?>
 						<h4 style="color:#8079C9;margin-top:15px">Official link</h4>
 						<p style="color:grey"><?=isset ($detail1show->Official_link) ?$detail1show->Official_link:''?></p>
 				
-						
+						<?php }if(!empty($detail1show->Address)){?>
 						<h4 style="color:#8079C9;margin-top:15px">Address</h4>
 						<p style="color:grey"><?=isset ($detail1show->Address) ?$detail1show->Address:''?></p>
 						
+						<?php }if(!empty($detail1show->Contact_no)){?>
 						<h4 style="color:#8079C9;margin-top:15px">Contact no</h4>
 						<p style="color:grey"><?=isset ($detail1show->Contact_no) ?$detail1show->Contact_no:''?></p>
-						
+						<?php }?>		
 				<?php }?>
 						
 					
