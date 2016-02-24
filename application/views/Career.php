@@ -503,6 +503,7 @@
 						<div class="col-sm-6 col-md-6">
 						<H3><?=isset ($detail1show->Career_name) ?$detail1show->Career_name:''?></H3>
 						</div>
+					<?php } if(!empty($detail1show->Image)){?>
 						<div class="col-sm-6 col-md-6">
 						<img src="<?=base_url();?>/uploaded_images/<?= isset ($detail1show->Image) ?$detail1show->Image:''?>"
 												height="90px" width="90px" style="float:right">
