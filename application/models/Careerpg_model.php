@@ -39,6 +39,16 @@ class Careerpg_model extends CI_Model
 		return $qry->Result();
 	}
 	
+	
+	function institute($id=false)
+	{
+		$qry=$this->db->query("Select Institute_name,Career_id,career_inst_mapping.Institute_id  
+						from career_inst_mapping,institute_master,institute_detail where institute_master.Institute_id=career_inst_mapping.Institute_id
+								and institute_master.Institute_id=institute_detail.Institute_id and career_inst_mapping.Career_id=$id");
+		return $qry->Result();
+	}
+	
+	
 	function insert($table=false,$data=false)
 	{
 		$this->db->insert($table,$data);

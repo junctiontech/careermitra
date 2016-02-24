@@ -1,6 +1,27 @@
 <body>
 
 <link href="<?=base_url();?>/../css/css/tooplate_style.css" rel="stylesheet">
+ <div class="row">
+
+ <?php  if($this->session->flashdata('category_success')) { ?>
+		<div class="row-fluid">
+			<div class="alert alert-success">
+				<strong><?=$this->session->flashdata('message')?></strong>
+			</div>
+		</div>
+  		<?php } ?>
+		</div>
+		
+	<div class="row">
+ <?php if($this->session->flashdata('category_error')){ ?>
+		<div class="form-group">
+		<div class="alert alert-danger">
+		<strong><?php echo $this->session->flashdata('message');?> </strong>
+		</div>
+		</div>
+		
+	</div>
+		<?php } ?>
 		<?php foreach ($student as $studentshow){
  
 			if(!empty($studentshow->Bgimg)){?>
@@ -19,7 +40,7 @@
   
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<a class="btn btn-primary btn-md"  style="margin-top:20px; margin-left:950px;background-color:#8079C9;" data-toggle="modal" data-target="#myModal">Change Password</a>
-				<a class="btn btn-primary btn-md"  style="margin-top:20px; margin-left:950px; background-color:#8079C9;" data-toggle="modal" data-target="#myModal1">Change role</a>
+				<a class="btn btn-primary btn-md" href="<?=base_url();?>index.php/Loginpg/role_change/user_id" style="margin-top:20px; margin-left:950px; background-color:#8079C9;">Become Mentor</a>
 			</div> 
 
 	
@@ -52,6 +73,7 @@
 								 <input type="hidden" name="Status" value="<?=isset ($studentshow->Status) ?$studentshow->Status:''?>" />  
 								 <input type="hidden" name="Password" value="<?=isset ($studentshow->Password) ?$studentshow->Password:''?>" />  
 								 <input type="hidden" name="file1" value="<?=isset ($studentshow->Bgimg) ?$studentshow->Bgimg:''?>" /> 
+
 
    
 									<div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="margin-left:140px ; margin-top:10px">
@@ -285,7 +307,7 @@
 											</div>
 								  
 </form>
-
+ 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
@@ -294,20 +316,22 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Change Password</h4>
       </div>
+	
+	  <form role="form" class="form-wizard validate" method="post" form-label-left"  action="<?=base_url();?>index.php/Loginpg/chng_password">
       <div class="modal-body">
       
-       <form class="form-horizontal form-label-left">
+			
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Old Password</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" placeholder="Old password" class="form-control">
+                     <input type="password" class="form-control" name="old_password" id="old_password" data-validate="required,minlength[5]" placeholder="Old password" />
                     </div>
                   </div>
 				  
 				  <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">New Password</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" placeholder="New password" class="form-control">
+                     <input type="password" class="form-control" name="password" id="password" data-validate="required,minlength[5]" placeholder="Enter strong password" />
                     </div>
                   </div>
 				  
@@ -315,62 +339,31 @@
 				  <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Confirm Password</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" placeholder="Confirm  password" class="form-control">
+                     <input type="password" class="form-control" name="confirm_password" id="Confirm_password" data-validate="required,equalTo[#password]" data-message-equal-to="Passwords doesn't match." placeholder="Confirm password" />
                     </div>
                   </div>
-			</form>	
-     
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
- 
- 
- 
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Change Role</h4>
-      </div>
-      <div class="modal-body">
-      
-       <form class="form-horizontal form-label-left">
-                  <div class="form-group">
-                    <label class="control-label" style="margin-left:13px" for="full_name">Gender</label><br>
-												
-					
-					<label>
-						<input type="radio" style="margin-left:13px" name="Gender"class="cbrcbr-purple " value="Male">
-						Male
-					</label><br>
 			
-					<label>
-						<input type="radio" style="margin-left:13px" name="Gender"class="cbrcbr-purple" Value="Female">
-						Female
-					</label> 
-		</form>	
      
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
+	  </form>	
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+ 
+ 
+ 
+
  
 <?php }?>
 
 </div>	
  
 </body>
-
+</div>
  
 
    

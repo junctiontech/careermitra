@@ -527,9 +527,14 @@
 				
 						<h4 style="color:#8079C9;margin-top:15px">Maximum salary</h4>
 						<p style="color:grey"><?=isset ($detail1show->Max_salary) ?$detail1show->Max_salary:''?></p>
-					<?php }?>
 						
-					
+						<h4 style="color:#8079C9;margin-top:15px">Institute </h4>
+						<?php } foreach ($institute as $ins){?>
+				
+						<li style="color:grey"><a href="<?=base_url();?>index.php/Institutepg/Index/<?=isset ($ins->Institute_id) ?$ins->Institute_id:''?>"><?=isset ($ins->Institute_name) ?$ins->Institute_name:''?></a></li>
+						<?php }?>
+						
+				
 				</div>
 			</div>	
 		</div>

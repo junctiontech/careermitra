@@ -104,7 +104,7 @@ class Loginpg_model extends CI_Model
    /*---------------------------------------------------Fetch data for admin ---------------------*/
  function admin()
    {
-	   $qry=$this->db->query("Select * from users where role_id='Admin'");
+	   $qry=$this->db->query("Select usermailid from users where role_id='Admin'");
 	   return $qry->result();
    }
 
@@ -113,6 +113,17 @@ class Loginpg_model extends CI_Model
 function mentoractive()
 {
    $qry=$this->db->query("Select user_id,First_name,Last_name,Status from users where role_id='Mentor'");
+	   return $qry->result();
+
+
+}
+
+
+
+  /*--------------------------------------------------Fetch data for student profile---------------------*/
+function stu_role($user_id=false)
+{
+   $qry=$this->db->query("Select user_id,First_name,Last_name,role_id from users where user_id='$user_id'");
 	   return $qry->result();
 
 
@@ -152,4 +163,21 @@ function delete1($table1=false,$filter=false)
 		$this->db->delete($table1,$filter);
 		
 	}
+	
+/* Function for Verify user id and password.......................................................................*/
+	function verify_admin($table,$data)
+	{
+		$qry=$this->db->get_where($table,$data);
+		return $qry->result();
+	}
+	
+	
+/* Function for update information for  users application.......................................................................*/
+	function set_update_org_app_info($table,$data,$filter)
+	{
+		$this->db->where($filter);
+		$this->db->update($table,$data);
+		return true;
+	}
+	
 }

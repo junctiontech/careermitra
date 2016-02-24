@@ -263,12 +263,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 					</li>
 					<li>
-						<a href="<?=base_url();?>index.php/Loginpg/mentoractive">
+						<a href="#javascript">
 							<i class="fa-cog"></i>
 							<span class="title">Manage Mentor</span>
 						</a>
 					
+					<ul>
+					
+						<li>
+						<a href="<?=base_url();?>index.php/Loginpg/mentoractive">Activate mentor</a>
+						</li>
 						
+						<li>
+						<a href="<?=base_url();?>index.php/Loginpg/rolechange">Change role</a>
+						</li>
+						
+					</ul>	
 					</li>
 					
 						<li>

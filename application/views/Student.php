@@ -1,8 +1,8 @@
 
 
-			<!-- Form wizard with validation starts here -->
+<!-- Form wizard with validation starts here -->
 			
-			<body style="background-color:#E8E8E8">
+<body style="background-color:#E8E8E8">
 			
 <div class="container" style="margin-top:100px; margin-bottom:200px; ">
 
@@ -36,7 +36,7 @@
 			</script>
 			
 			
-			<form  role="form" id="rootwizard" class="form-wizard validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
+	<form  role="form" onsubmit="return checkform()" id="rootwizard" class="form-wizard validate" method="post" enctype="multipart/form-data" action="<?=base_url();?>index.php/Loginpg/insert1">
 				<input type="hidden" name="role_id" value="student" />
 				<input type="hidden" name="Status" value="Inactive" />
 				<ul class="tabs">

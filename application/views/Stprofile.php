@@ -241,7 +241,7 @@
 
                  <div class="panel-footer">
                         
-                            <a href=<?=base_url();?>index.php/Loginpg/editprofile/<?=isset($studentshow->user_id) ?$studentshow->user_id:''?> data-original-title="Edit my profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="<?=base_url();?>index.php/Loginpg/editprofile/<?=isset($studentshow->user_id) ?$studentshow->user_id:''?>" data-original-title="Edit my profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
                            <!-- <a data-original-title="Delete my account" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>-->
                         </span>
                     </div>

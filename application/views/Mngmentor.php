@@ -77,14 +77,15 @@
 					
 					<td><?=isset ($profileshow->Status) ?$profileshow->Status:''?></td>
 					
-					<?php if($profileshow->Status=='Inactive'){?>
 					<td>
+					<?php if($profileshow->Status=='Inactive'){?>
+					
                       <div class="btn-group">
 						<a class="btn btn-small btn-primary show-tooltip" title="Active" href="<?php echo base_url();?>index.php/Loginpg/mentor_activate/<?=isset ($profileshow->user_id) ?$profileshow->user_id:''?>"><i class="fa fa-foursquare"></i> Active</a>
 					</div> 
 					<?php }elseif($profileshow->Status=='Active'){?>
 					
-					<td>
+					
                       <div class="btn-group">
 						<a class="btn btn-small btn-success show-tooltip" title="Inactive" href="<?php echo base_url();?>index.php/Loginpg/mentor_deactivate/<?=isset ($profileshow->user_id) ?$profileshow->user_id:''?>"><i class="fa fa-foursquare"></i>Inactive</a>
 					</div>
